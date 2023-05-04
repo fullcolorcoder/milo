@@ -5,10 +5,6 @@
   height: 100vh;
 }
 
-/*
-Common styles for the block region selector loader
-*/
-
 .commerce {
   width: 360px;
   height: 360px;
@@ -18,49 +14,12 @@ Common styles for the block region selector loader
   font-size: 0.875rem;
 }
 
-.sk-header {
-  background: rgb(0 0 0 / 35%);
-  display: flex;
-  justify-content: space-between;
-  padding: 0 12px;
-  line-height: 36px;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-.actions {
-  display: grid;
-  gap: 12px;
-  grid-template-columns: 48px 60px 60px;
-  text-align: center;
-}
-
-.detail {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 12px;
-  line-height: 72px;
-  font-size: 1.125rem;
-  text-transform: uppercase;
-}
-
-.action {
-  display: inline-block;
-  overflow: hidden;
-  text-indent: -1000px;
-}
-
-.status-404 {
-  opacity: 0.25;
-  pointer-events: none;
-}
-
 /* Offer details */
 .offer-search-wrapper {
   position: relative;
 }
 
-.offer-search-wrapper ul {
+.offer-details {
   margin: 0;
   padding: 0;
   list-style: none;
