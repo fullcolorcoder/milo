@@ -1,5 +1,5 @@
 import { createTag } from '../../utils/utils.js';
-import { loadTacocat } from '../merch/merch.js';
+import { loadTacocat, omitNullValues } from '../merch/merch.js';
 
 const decorateOfferDetails = (el, offer) => {
   const offerDetails = document.createElement('ul');
@@ -45,8 +45,6 @@ const handleSearch = (e, els) => {
     console.log('Invalid URL');
     return undefined;
   }
-  console.log('osi', osi);
-  console.log('osi', type);
 };
 
 const decorateSearch = (el) => {

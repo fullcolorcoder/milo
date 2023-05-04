@@ -18,7 +18,7 @@ const GEO_MAPPINGS = {
   no: 'nb-NO',
 };
 
-const omitNullValues = (target) => {
+export const omitNullValues = (target) => {
   if (target != null) {
     Object.entries(target).forEach(([key, value]) => {
       if (value == null) delete target[key];
@@ -125,6 +125,7 @@ function buildCheckoutButton(link, dataAttrs = {}) {
 function buildPrice(dataAttrs = {}) {
   const span = document.createElement('span', { is: 'inline-price' });
   span.setAttribute('is', 'inline-price');
+  console.log(span.dataset);
   Object.assign(span.dataset, omitNullValues(dataAttrs));
   return span;
 }
