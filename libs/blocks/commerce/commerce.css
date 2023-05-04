@@ -1,0 +1,110 @@
+.in-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/*
+Common styles for the block region selector loader
+*/
+
+.commerce {
+  width: 360px;
+  height: 360px;
+  overflow: scroll;
+  background-color: #303030;
+  color: #fff;
+  font-size: 0.875rem;
+}
+
+.sk-header {
+  background: rgb(0 0 0 / 35%);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 12px;
+  line-height: 36px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.actions {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 48px 60px 60px;
+  text-align: center;
+}
+
+.detail {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 12px;
+  line-height: 72px;
+  font-size: 1.125rem;
+  text-transform: uppercase;
+}
+
+.action {
+  display: inline-block;
+  overflow: hidden;
+  text-indent: -1000px;
+}
+
+.status-404 {
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+/* Offers List */
+ul.offers {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.offer-search-wrapper {
+  position: relative;
+}
+
+.offer-search {
+  width: 100%;
+  display: block;
+  font-family: var(--body-font-family);
+  background: rgb(0 0 0 / 35%);
+  border: none;
+  margin: 0;
+  padding: 0 12px;
+  line-height: 36px;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #FFF;
+  box-sizing: border-box;
+  transition: padding .2s ease-in-out;
+}
+
+.offer-search-icon {
+  position: absolute;
+  content: '';
+  width: 36px;
+  height: 36px;
+  left: -36px;
+  top: 0;
+  background: url('/libs/ui/img/spectrum-search.svg') center / 24px no-repeat;
+  transition: left .2s ease-in-out;
+}
+
+.offer-search:hover + .offer-search-icon, .offer-search:focus + .offer-search-icon {
+  left: 6px;
+}
+
+.offer-search:hover, .offer-search:focus {
+  padding: 0 42px;
+}
+
+.offer-search::placeholder {
+  color: #FFF;
+}
+
+.offer-search:focus::placeholder {
+  color: #676767;
+}
