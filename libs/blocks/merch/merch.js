@@ -125,7 +125,6 @@ function buildCheckoutButton(link, dataAttrs = {}) {
 function buildPrice(dataAttrs = {}) {
   const span = document.createElement('span', { is: 'inline-price' });
   span.setAttribute('is', 'inline-price');
-  console.log(span.dataset);
   Object.assign(span.dataset, omitNullValues(dataAttrs));
   return span;
 }
@@ -211,6 +210,7 @@ export default async function init(el) {
     promotionCode,
     perpetual,
   });
+  console.log(price);
   el.replaceWith(price);
   return price;
 }
