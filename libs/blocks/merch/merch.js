@@ -79,24 +79,26 @@ export const runTacocat = (tacocatEnv, country, language) => {
   });
 };
 
-window.tacocat.loadPromise = new Promise((resolve) => {
-  const { env, locale } = getConfig();
-  const {
-    literalScriptUrl,
-    scriptUrl,
-    country,
-    language,
-    tacocatEnv,
-  } = getTacocatEnv(env.name, locale);
+export function loadTacocat() {
+  window.tacocat.loadPromise = new Promise((resolve) => {
+    const { env, locale } = getConfig();
+    const {
+      literalScriptUrl,
+      scriptUrl,
+      country,
+      language,
+      tacocatEnv,
+    } = getTacocatEnv(env.name, locale);
 
-  loadScript(literalScriptUrl)
-    .catch(() => ({})) /* ignore if literals fail */
-    .then(() => loadScript(scriptUrl))
-    .then(() => {
-      runTacocat(tacocatEnv, country, language);
-      resolve();
-    });
-});
+    loadScript(literalScriptUrl)
+      .catch(() => ({})) /* ignore if literals fail */
+      .then(() => loadScript(scriptUrl))
+      .then(() => {
+        runTacocat(tacocatEnv, country, language);
+        resolve();
+      });
+  });
+}
 
 function buildCheckoutButton(link, dataAttrs = {}) {
   const a = document.createElement('a', { is: 'checkout-link' });
@@ -162,7 +164,7 @@ function getCheckoutContext(searchParams, config) {
 export default async function init(el) {
   if (!el?.classList?.contains('merch')) return undefined;
   try {
-    await window.tacocat.loadPromise;
+    await loadTacocat();
   } catch (e) {
     console.error('Tacocat not loaded', e);
     return undefined;
