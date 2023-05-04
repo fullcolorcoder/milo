@@ -2,7 +2,8 @@ import { createTag } from '../../utils/utils.js';
 import { loadTacocat } from '../merch/merch.js';
 
 const decorateOfferDetails = (el, offer) => {
-  const offerDetails = document.createElement('ul', { class: 'offer-details' });
+  const offerDetails = document.createElement('ul');
+  offerDetails.className = 'offer-details';
   // const offer = {
   //   'Type': offer.type,
   //   'Offer ID': offer.offerID,
