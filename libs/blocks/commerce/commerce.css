@@ -55,15 +55,15 @@ Common styles for the block region selector loader
   pointer-events: none;
 }
 
-/* Offers List */
-ul.offers {
+/* Offer details */
+.offer-search-wrapper {
+  position: relative;
+}
+
+.offer-search-wrapper ul {
   margin: 0;
   padding: 0;
   list-style: none;
-}
-
-.offer-search-wrapper {
-  position: relative;
 }
 
 .offer-search {
