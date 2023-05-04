@@ -55,7 +55,7 @@ const decorateSearch = (el) => {
   const wrapper = createTag('div', { class: 'offer-search-wrapper' }, [search, icon]);
 
   search.addEventListener('keyup', (e) => { handleSearch(e); });
-  el.append(wrapper, offerDetails);
+  el.append(wrapper);
 };
 
 function detectContext() {
