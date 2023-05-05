@@ -210,7 +210,6 @@ export default async function init(el) {
     promotionCode,
     perpetual,
   });
-  console.log(price);
   el.replaceWith(price);
   return price;
 }

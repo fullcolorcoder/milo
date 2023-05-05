@@ -15,7 +15,7 @@ const decorateOfferDetails = (el, offer) => {
   }
 };
 
-const handleSearch = (e, els) => {
+const handleSearch = (e) => {
   // const offer = {
   //   type: 'Type 1',
   //   offerID: '123456',
