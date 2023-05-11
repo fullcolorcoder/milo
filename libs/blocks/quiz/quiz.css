@@ -866,3 +866,4 @@ TODO: Need to check if we can skip this somehow.
   top: 6px;
   margin-left: 20px;
 }
+.quiz-container ~ div { display: none; visibility: hidden; }
