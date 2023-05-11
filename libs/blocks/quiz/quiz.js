@@ -1,12 +1,20 @@
-import { render, html, useEffect, useState } from '../../deps/htm-preact.js';
-import { getConfig, loadStyle } from '../../utils/utils.js';
+import { render, html, useEffect, useState, useMemo } from '../../deps/htm-preact.js';
+import { getConfig } from '../../utils/utils.js';
 import { GetQuizOption } from './quizoption.js';
 import { DecorateBlockBackground, DecorateBlockForeground } from './quizcontainer.js';
 import { initConfigPathGlob, handleResultFlow, handleNext, transformToFlowData, getQuizData } from './utils.js';
 import StepIndicator from './stepIndicator.js';
 
 const { codeRoot } = getConfig();
-loadStyle(`${codeRoot}/deps/caas.css`);
+
+const loadStyleAsync = async (url) => {
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = url;
+  document.head.appendChild(link);
+};
+
+loadStyleAsync(`${codeRoot}/deps/caas.css`);
 
 const App = () => {
   const [questionData, setQuestionData] = useState({});
@@ -123,10 +131,11 @@ const App = () => {
     return html`<div>Loading</div>`;
   }
 
-  const getStringValue = (propName) => {
+  const getStringValue = useMemo(() => (propName) => {
     const question = stringQuestionList[selectedQuestion.questions];
     return question ? question[propName] || '' : '';
-  };
+  }, [stringQuestionList, selectedQuestion]);
+
   const getOptionsIcons = (optionsType, prop) => {
     const optionItem = stringData[selectedQuestion.questions].data.find(
       (item) => item.options === optionsType,
@@ -137,37 +146,27 @@ const App = () => {
   const minSelections = +selectedQuestion['min-selections'];
   const maxSelections = +selectedQuestion['max-selections'];
 
-  return html`<div class="quiz-container">
-                  <${StepIndicator} 
-                    currentStep=${currentStep} 
-                    totalSteps=${totalSteps} 
-                    prevStepIndicator=${prevStepIndicator}
-                  />  
-                  <div class="background">
-                      ${DecorateBlockBackground(getStringValue)}
-                  </div>
-
-                  <${DecorateBlockForeground} 
-                      heading=${getStringValue('heading')} 
-                      subhead=${getStringValue('sub-head')} 
-                      btnText=${getStringValue('btn')} />
-                      
-                  <${GetQuizOption} 
-                      btnText=${getStringValue('btn')} 
-                      minSelections=${minSelections} 
-                      maxSelections=${maxSelections} 
-                      options=${stringData[selectedQuestion.questions]} 
-                      countSelectedCards=${countSelectedCards}
-                      selectedCards=${selectedCards}
-                      onOptionClick=${onOptionClick}
-                      getOptionsIcons=${getOptionsIcons}
-                      handleOnNextClick=${handleOnNextClick} />
-                      <${StepIndicator} 
-                      currentStep=${currentStep} 
-                      totalSteps=${totalSteps} 
-                      prevStepIndicator=${prevStepIndicator}
-                    />  
-              </div>`;
+    return html`<div class="quiz-container">
+    <${StepIndicator} currentStep=${currentStep} totalSteps=${totalSteps} prevStepIndicator=${prevStepIndicator} />
+    <div class="background">${DecorateBlockBackground(getStringValue)}</div>
+    <${DecorateBlockForeground}
+      heading=${getStringValue('heading')}
+      subhead=${getStringValue('sub-head')}
+      btnText=${getStringValue('btn')}
+    />
+    <${GetQuizOption}
+      btnText=${getStringValue('btn')}
+      minSelections=${minSelections}
+      maxSelections=${maxSelections}
+      options=${stringData[selectedQuestion.questions]}
+      countSelectedCards=${countSelectedCards}
+      selectedCards=${selectedCards}
+      onOptionClick=${onOptionClick}
+      getOptionsIcons=${getOptionsIcons}
+      handleOnNextClick=${handleOnNextClick}
+    />
+    <${StepIndicator} currentStep=${currentStep} totalSteps=${totalSteps} prevStepIndicator=${prevStepIndicator} />
+  </div>`;
 };
 
 export default async function init(el) {
