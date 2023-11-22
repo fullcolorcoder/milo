@@ -2,6 +2,7 @@ import {
   render, html, useEffect, useMemo, useState, useLayoutEffect,
 } from '../../deps/htm-preact.js';
 import { createTag } from '../../utils/utils.js';
+import { getMetadata } from '../section-metadata/section-metadata.js';
 import { GetQuizOption } from './quizoption.js';
 import { DecorateBlockBackground, DecorateBlockForeground } from './quizcontainer.js';
 import {
@@ -20,7 +21,7 @@ export async function loadFragments(fragmentURL) {
 
 const App = ({
   initialIsDataLoaded = false,
-  preQuestions = {}, initialStrings = {},
+  preQuestions = {}, initialStrings = {}, shortQuiz: isShortQuiz = false,
 }) => {
   const [btnAnalytics, setBtnAnalytics] = useState(null);
   const [countSelectedCards, setCountOfSelectedCards] = useState(0);
@@ -34,7 +35,7 @@ const App = ({
   const [selectedQuestion, setSelectedQuestion] = useState(preQuestions || null);
   const [stringData, setStringData] = useState(initialStrings || {});
   const [stringQList, setStringQList] = useState(preQuestions.stringQList || {});
-  const [totalSteps, setTotalSteps] = useState(3);
+  const [totalSteps, setTotalSteps] = useState(isShortQuiz ? 2 : 3);
   const initialUrlParams = getUrlParams();
   const [userSelection, updateUserSelection] = useState([]);
   const [userFlow, setUserFlow] = useState([]);
@@ -321,12 +322,15 @@ export default async function init(
   initialIsDataLoaded = false,
   preQuestions = {},
   initialStrings = {},
+  shortQuiz,  
 ) {
-  initConfigPathGlob(el);
+  const configData = initConfigPathGlob(el);
+  shortQuiz = configData.shortQuiz;
   el.replaceChildren();
   render(html`<${App} 
     initialIsDataLoaded=${initialIsDataLoaded} 
     preQuestions=${preQuestions} 
-    initialStrings=${initialStrings} 
+    initialStrings=${initialStrings}
+    shortQuiz=${shortQuiz}
   />`, el);
 }
