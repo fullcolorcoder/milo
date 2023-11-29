@@ -258,10 +258,6 @@ const App = ({
     if (fragmentURL) {
       loadFragments(fragmentURL);
     }
-    const iconBg = getStringValue('icon-background-color');
-    if (iconBg) {
-      document.documentElement.style.setProperty('--quiz-icon-bg', iconBg);
-    }
   }, [selectedQuestion, stringQList]);
 
   if (!isDataLoaded || !selectedQuestion) {
@@ -301,8 +297,7 @@ const App = ({
                     btnText=${getStringValue('btn')} 
                     minSelections=${minSelections} 
                     maxSelections=${maxSelections} 
-                    options=${stringData[selectedQuestion.questions]}
-                    background=${getStringValue('icon-background-color')}
+                    options=${stringData[selectedQuestion.questions]} 
                     countSelectedCards=${countSelectedCards}
                     selectedCards=${selectedCards}
                     onOptionClick=${onOptionClick}
