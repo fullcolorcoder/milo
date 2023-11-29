@@ -33,8 +33,8 @@ export const CreateOptions = ({
           <${OptionCard} 
             text=${option.text}
             title=${option.title} 
-            cardIcon=${getOptionsIcons(option.options, 'image')}
-            coverImage=${getOptionsIcons(option.options, 'cover')}
+            cardIcon=${getOptionsIcons(option.options, 'icon')}
+            coverImage=${getOptionsIcons(option.options, 'image')}
             options=${option.options}
             selected=${selectedCards[option.options] ? 'selected' : ''}
             disabled=${(countSelectedCards > 0 && !selectedCards[option.options] && countSelectedCards >= maxSelections) ? 'disabled' : ''}/>
@@ -67,4 +67,3 @@ export const GetQuizOption = ({
         </button>
       </div>
   </div>`;
-  
