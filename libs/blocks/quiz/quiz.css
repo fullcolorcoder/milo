@@ -62,7 +62,7 @@
 }
 
 .quiz-option {
-  align-items: stretch;
+  align-items: center;
   background-color: #efefef;
   border: 1px solid var(--color-white);
   border-radius: 0.5rem;
