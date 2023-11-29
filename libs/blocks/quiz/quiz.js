@@ -258,10 +258,10 @@ const App = ({
     if (fragmentURL) {
       loadFragments(fragmentURL);
     }
-    const iconBg = getStringValue('icon-background-color');
-    if (iconBg) {
-      document.documentElement.style.setProperty('--quiz-icon-bg', iconBg);
-    }
+    // const iconBg = getStringValue('icon-background-color');
+    // if (iconBg) {
+    //   document.documentElement.style.setProperty('--quiz-icon-bg', iconBg);
+    // }
   }, [selectedQuestion, stringQList]);
 
   if (!isDataLoaded || !selectedQuestion) {
