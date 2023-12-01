@@ -17,7 +17,7 @@ export const OptionCard = ({
     <picture>
       ${iconDesktop && html`<source media="(min-width: 1024px)" srcset="${iconDesktop}" />`}
       ${iconTablet && html`<source media="(min-width: 600px)" srcset="${iconTablet}" />`}
-      <img src="${icon}" alt="${text || title || 'Quiz Option Icon'}" />
+      <img src="${icon}" alt="${text || title || 'Quiz Option Icon'}" loading="lazy"/>
     </picture>
   </div>`;
 
