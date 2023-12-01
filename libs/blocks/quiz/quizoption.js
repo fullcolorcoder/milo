@@ -13,8 +13,12 @@ export const OptionCard = ({
     return className;
   };
 
-  const getIconHtml = (iconUrl, iconClass) => html`<div class="quiz-option-icon ${iconClass}">
-    <img src="${iconUrl}" alt="${text || title || 'Quiz Option Icon'}" />
+  const getIconHtml = () => html`<div class="quiz-option-icon">
+    <picture>
+      ${iconDesktop && html`<source media="(min-width: 1024px)" srcset="${iconDesktop}" />`}
+      ${iconTablet && html`<source media="(min-width: 600px)" srcset="${iconTablet}" />`}
+      <img src="${icon}" alt="${text || title || 'Quiz Option Icon'}" />
+    </picture>
   </div>`;
 
   const imageHtml = html`
@@ -32,9 +36,7 @@ export const OptionCard = ({
 
   return html`<button class="quiz-option ${getOptionClass()}" data-option-name="${options}" 
         aria-pressed="${!!selected}" tabindex="${disabled ? '-1' : '0'}">
-        ${iconDesktop && getIconHtml(iconDesktop, 'icon-desktop')}
-        ${iconTablet && getIconHtml(iconTablet, 'icon-tablet')}
-        ${icon && getIconHtml(icon, 'icon-default')}
+        ${(icon || iconTablet || iconDesktop) && getIconHtml()}
         ${image && imageHtml}
         <div class="quiz-option-text-container">  
           ${title && titleHtml}
