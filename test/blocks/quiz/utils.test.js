@@ -63,6 +63,21 @@ describe('Quiz', () => {
     expect(mockDataStrings).to.be.an('object');
   });
 
+  it('Checks the structure of the strings data', async () => {
+    expect(mockDataStrings.questions).to.be.an('object');
+    expect(mockDataStrings.questions.total).to.be.a('number');
+    expect(mockDataStrings.questions.offset).to.be.a('number');
+    expect(mockDataStrings.questions.limit).to.be.a('number');
+    expect(mockDataStrings.questions.data).to.be.an('array');
+    expect(mockDataStrings.questions.data[0]).to.be.an('object');
+    expect(mockDataStrings.questions.data[0].q).to.be.a('string');
+    expect(mockDataStrings.questions.data[0].heading).to.be.a('string');
+    expect(mockDataStrings.questions.data[0]['sub-head']).to.be.a('string');
+    expect(mockDataStrings.questions.data[0].btn).to.be.a('string');
+    expect(mockDataStrings.questions.data[0].background).to.be.a('string');
+    expect(mockDataStrings.questions.data[0].footerFragment).to.be.a('string');
+  });
+
   it('Checking general next button functionality', async () => {
     const selectedQuestion = { 'max-selections': '3', 'min-selections': '1', questions: 'q-category' };
     const userInputSelections = { photo: true };
