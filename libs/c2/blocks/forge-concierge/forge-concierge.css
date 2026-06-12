@@ -1,0 +1,44 @@
+.forge-concierge img {display:block;max-width:100%}
+
+.forge-concierge .t-title-2 {font:900 56px/56px var(--s2a-font-family-heading);letter-spacing:-1.68px}
+
+.forge-concierge .t-body-xs {font:400 12px/18px var(--s2a-font-family-body)}
+
+.forge-concierge {background:#000;padding:0 var(--section-padding-xl) var(--layout-md);
+  display:flex;flex-direction:column;align-items:center;justify-content:center}
+
+.forge-concierge .concierge__wrap {max-width:1200px;width:100%;display:flex;flex-direction:column;align-items:center;gap:var(--sp-lg)}
+
+.forge-concierge h2 {color:#fff;text-align:center}
+
+.forge-concierge .concierge__prompt {max-width:768px;width:100%;display:flex;flex-direction:column;gap:var(--sp-lg)}
+
+.forge-concierge .prompt-input {display:flex;align-items:center;gap:var(--sp-md);height:56px;padding:var(--sp-sm);border-radius:28px;
+  background:var(--s2a-color-transparent-white-10);border:var(--border-width-sm) solid var(--brand-concierge-input-border)}
+
+.forge-concierge .prompt-input .ai {width:24px;height:24px;flex:none}
+
+.forge-concierge .prompt-input input {flex:1;min-width:0;background:transparent;border:0;outline:0;color:#fff;
+  font:400 16px/20px var(--s2a-font-family-body)}
+
+.forge-concierge .prompt-input input::placeholder {color:var(--s2a-color-content-body-subtle)}
+
+.forge-concierge .prompt-input .send {width:32px;height:32px;flex:none;color:#fff;
+  background:transparent;border:0;padding:0;cursor:pointer;appearance:none}
+
+.forge-concierge .prompt-input .send svg {width:100%;height:100%;display:block}
+
+.forge-concierge .suggestions {display:flex;flex-wrap:wrap;gap:var(--sp-xs);justify-content:center;width:100%}
+
+.forge-concierge .chip {background:var(--s2a-color-transparent-white-10);border:1.5px solid var(--brand-concierge-suggestion-border);
+  padding:var(--sp-sm) var(--sp-md);border-radius:18px;color:rgba(255,255,255,0.7);
+  font:400 14px/18px var(--s2a-font-family-body);cursor:pointer}
+
+.forge-concierge .concierge__legal {color:var(--s2a-color-content-body-subtle);text-align:center;max-width:1200px}
+
+.forge-concierge .concierge__legal a {color:inherit;text-decoration:underline}
+
+@media (max-width:700px) {
+  .forge-concierge {padding:0 var(--sp-lg) var(--layout-sm)}
+  .forge-concierge .t-title-2 {font-size:36px;line-height:38px;letter-spacing:-1px}
+}
