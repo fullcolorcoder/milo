@@ -167,3 +167,6 @@
     animation-name: none;
   }
 }
+
+/* forge loose-band overlay (delta wins over stock) */
+@import '../_forge-overlays/base-card--featured.css';

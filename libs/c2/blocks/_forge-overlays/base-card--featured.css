@@ -1,0 +1,15 @@
+.base-card.featured img {display:block;max-width:100%}
+
+.base-card.featured main {max-width:1440px;margin:0 auto;overflow:hidden;background:#fff}
+
+.base-card.featured section {position:relative;width:100%}
+
+.base-card.featured .footer .featured {display:flex;flex-direction:column;gap:24px;padding:0 120px;width:100%}
+
+.base-card.featured .footer .featured .lbl {color:#fff}
+
+.base-card.featured .footer .featured .apps {display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+
+.base-card.featured .footer .featured .app {display:flex;gap:8px;align-items:center;color:var(--s2a-color-content-subtle)}
+
+.base-card.featured .footer .featured .app .tile {width:16px;height:16px;border-radius:4px;background:rgba(255,255,255,0.25)}

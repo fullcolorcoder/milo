@@ -1,0 +1,37 @@
+.forge-jumpnav img {display:block;max-width:100%}
+
+.forge-jumpnav .t-h2 {font-family:var(--font-heading);font-weight:900;font-size:var(--s2a-font-size-title-2);line-height:var(--s2a-lh-title-2);letter-spacing:var(--s2a-ls-title-2)}
+
+.forge-jumpnav .t-h5 {font-family:var(--font-heading);font-weight:900;font-size:var(--s2a-font-size-heading-5);line-height:var(--s2a-lh-heading-5);letter-spacing:var(--s2a-ls-heading-5)}
+
+.forge-jumpnav .t-eyebrow {font-family:var(--font-body);font-weight:700;font-size:var(--s2a-font-size-eyebrow);line-height:var(--s2a-lh-eyebrow)}
+
+.forge-jumpnav .appid {display:inline-flex;gap:8px;align-items:center}
+
+.forge-jumpnav .appid img {width:24px;height:24px}
+
+.forge-jumpnav {position:relative;min-height:814px;margin-top:-32px;z-index:1;color:#fff;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:160px 40px 80px;border-radius:0 0 32px 32px}
+
+.forge-jumpnav .bg {position:absolute;inset:0}
+
+.forge-jumpnav .bg picture {display:block;width:100%;height:100%}
+
+.forge-jumpnav .bg img {position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+.forge-jumpnav .scrim {position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 39.451%,rgba(0,0,0,0) 74.489%,rgba(0,0,0,0.8) 100%)}
+
+.forge-jumpnav .inner {position:relative;display:flex;flex-direction:column;gap:16px;max-width:656px}
+
+.forge-jumpnav h2 {max-width:656px}
+
+.forge-jumpnav .jumps {position:relative;display:flex;gap:32px;align-items:center;flex-wrap:wrap}
+
+.forge-jumpnav .jump {display:flex;gap:8px;align-items:center;color:#fff;text-decoration:none}
+
+.forge-jumpnav .jbtn {width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:var(--s2a-color-transparent-white-16);border:1px solid var(--s2a-color-transparent-white-12);border-radius:6px}
+
+@media (max-width:767px) {
+  .forge-jumpnav {padding:80px 24px 40px}
+  .forge-jumpnav .t-h2 {font-size:36px;line-height:38px;letter-spacing:-1px}
+  .forge-jumpnav .jumps {gap:16px}
+}

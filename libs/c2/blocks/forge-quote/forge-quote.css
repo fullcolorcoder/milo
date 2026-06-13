@@ -1,0 +1,36 @@
+.forge-quote img { display: block; max-width: 100% }
+
+.forge-quote .t-body-md { font-family: var(--font-body); font-weight: 400; font-size: var(--s2a-font-size-body-md); line-height: var(--s2a-lh-body-md) }
+
+.forge-quote { background: var(--merch-bg); color: #fff; min-height: 746px; display: flex; align-items: center; justify-content: center; border-radius: 0 0 32px 32px; z-index: 2 }
+
+.forge-quote .frame { position: relative; width: 1344px; max-width: calc(100% - 96px); height: 650px; border: 1px solid rgba(229, 229, 229, 0.1); display: flex; flex-direction: column; justify-content: space-between; padding: 24px }
+
+.forge-quote blockquote { color: #fff; font-family: var(--font-heading); font-weight: 900; font-size: var(--s2a-font-size-title-1); line-height: var(--s2a-lh-title-1); letter-spacing: var(--s2a-ls-title-1) }
+
+.forge-quote .by { display: flex; flex-direction: column; align-items: center; text-align: center }
+
+.forge-quote .by .name { color: #fff }
+
+.forge-quote .by .role { color: rgba(255, 255, 255, 0.6) }
+
+.forge-quote .x { position: absolute; width: 37px; height: 37px; opacity: .4 }
+
+.forge-quote .x::before,
+.forge-quote .x::after { content: ""; position: absolute; left: 50%; top: 50%; background: rgba(229, 229, 229, .5) }
+
+.forge-quote .x::before { width: 37px; height: 1px; transform: translate(-50%, -50%) }
+
+.forge-quote .x::after { width: 1px; height: 37px; transform: translate(-50%, -50%) }
+
+.forge-quote .x.tl { left: -19px; top: -19px }
+
+.forge-quote .x.tr { right: -19px; top: -19px }
+
+.forge-quote .x.bl { left: -19px; bottom: -19px }
+
+.forge-quote .x.br { right: -19px; bottom: -19px }
+
+@media (max-width: 767px) {
+  .forge-quote blockquote { font-size: 34px; line-height: 36px; letter-spacing: -1px }
+}

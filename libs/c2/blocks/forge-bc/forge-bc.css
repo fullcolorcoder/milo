@@ -1,0 +1,52 @@
+.forge-bc img { display: block; max-width: 100% }
+
+.forge-bc .t-h2 { font-family: var(--font-heading); font-weight: 900; font-size: var(--s2a-font-size-title-2); line-height: var(--s2a-lh-title-2); letter-spacing: var(--s2a-ls-title-2) }
+
+.forge-bc .t-body-md { font-family: var(--font-body); font-weight: 400; font-size: var(--s2a-font-size-body-md); line-height: var(--s2a-lh-body-md) }
+
+.forge-bc .t-body-sm { font-family: var(--font-body); font-weight: 400; font-size: var(--s2a-font-size-body-sm); line-height: var(--s2a-lh-body-sm) }
+
+.forge-bc .t-body-xs { font-family: var(--font-body); font-weight: 400; font-size: var(--s2a-font-size-body-xs); line-height: var(--s2a-lh-body-xs) }
+
+.forge-bc {
+  --bc-input-border: rgba(255, 255, 255, 0.15);
+  --bc-chip-border: rgba(255, 255, 255, 0.15);
+  background: #000;
+  color: #fff;
+  padding: 160px 120px 96px;
+  min-height: 568px;
+  margin-top: -32px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.forge-bc .container { display: flex; flex-direction: column; align-items: center; gap: 24px; max-width: 1200px; width: 100% }
+
+.forge-bc h2 { text-align: center; width: 100% }
+
+.forge-bc .prompt { display: flex; flex-direction: column; gap: 24px; align-items: center; max-width: 768px; width: 100% }
+
+.forge-bc .input { display: flex; gap: 16px; align-items: center; height: 56px; padding: 12px; width: 100%; background: rgba(255, 255, 255, 0.1); border: 1px solid var(--bc-input-border); border-radius: 28px }
+
+.forge-bc .input .ai { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; color: #cf6bff }
+
+.forge-bc .input .ph { flex: 1 1 0; color: rgba(255, 255, 255, 0.64) }
+
+.forge-bc .input .send { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 999px; color: #fff; background: none; border: none; cursor: pointer; padding: 0 }
+
+.forge-bc .chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; width: 100% }
+
+.forge-bc .chip { display: flex; align-items: center; padding: 12px 16px; background: rgba(255, 255, 255, 0.1); border: 1.5px solid var(--bc-chip-border); border-radius: 18px; color: rgba(255, 255, 255, 0.7); cursor: pointer; font-family: inherit; text-align: left }
+
+.forge-bc .disclaimer { text-align: center; color: rgba(255, 255, 255, 0.64); width: 100% }
+
+.forge-bc .disclaimer u,
+.forge-bc .disclaimer a { cursor: pointer }
+
+@media (max-width: 767px) {
+  .forge-bc .t-h2 { font-size: 36px; line-height: 38px; letter-spacing: -1px }
+  .forge-bc { padding: 96px 20px 64px }
+}

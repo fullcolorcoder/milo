@@ -1,0 +1,56 @@
+.forge-roller img {display:block;max-width:100%}
+
+.forge-roller .t-super {font-family:var(--font-heading);font-weight:900;font-size:var(--s2a-font-size-super);line-height:var(--s2a-lh-super);letter-spacing:var(--s2a-ls-super)}
+
+.forge-roller .t-h2 {font-family:var(--font-heading);font-weight:900;font-size:var(--s2a-font-size-title-2);line-height:var(--s2a-lh-title-2);letter-spacing:var(--s2a-ls-title-2)}
+
+.forge-roller .t-h6 {font-family:var(--font-heading);font-weight:900;font-size:var(--s2a-font-size-heading-6);line-height:var(--s2a-lh-heading-6);letter-spacing:var(--s2a-ls-heading-6)}
+
+.forge-roller .t-eyebrow {font-family:var(--font-body);font-weight:700;font-size:var(--s2a-font-size-eyebrow);line-height:var(--s2a-lh-eyebrow)}
+
+.forge-roller {position:relative;min-height:870px;margin-top:92px;color:#fff;overflow:hidden;padding:160px 24px 0;display:flex;justify-content:flex-start}
+
+.forge-roller .bg {position:absolute;inset:0;z-index:1}
+
+.forge-roller .bg img {position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(145px);transform:scale(1.1)}
+
+.forge-roller .bg .dim {position:absolute;inset:0;background:rgba(0,0,0,0.55)}
+
+.forge-roller .cw {position:relative;z-index:2;display:flex;gap:8px;width:100%;padding-left:16px;align-items:flex-start}
+
+.forge-roller .left {display:flex;flex-direction:column;gap:96px;flex:1 1 0}
+
+.forge-roller .rhead {display:flex;flex-direction:column;gap:8px}
+
+.forge-roller .cwrap {display:flex;flex-direction:column}
+
+.forge-roller .cat {padding-bottom:16px}
+
+.forge-roller .divider {height:1px;background:rgba(255,255,255,0.1);width:100%}
+
+.forge-roller .window {position:relative;height:460px;overflow:hidden}
+
+.forge-roller .list {position:absolute;top:-201px;left:0;display:flex;flex-direction:column}
+
+.forge-roller .list p {line-height:92px;color:var(--s2a-color-transparent-white-12)}
+
+.forge-roller .list p.active {color:#fff}
+
+.forge-roller .right {flex:1 1 0;max-width:650px;display:flex;align-items:center;padding-bottom:160px}
+
+.forge-roller .media {position:relative;width:100%;height:550px;border-radius:16px;overflow:hidden;padding:16px 0 0 16px}
+
+.forge-roller .media .pic,
+.forge-roller .media .pic img {position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:16px}
+
+.forge-roller .media .appicon {position:relative;width:32px;height:32px;border-radius:7px;background:linear-gradient(135deg,#1d0a4f,#3a1d8a);display:flex;align-items:center;justify-content:center;font:700 12px/1 var(--font-heading);color:#cfa9ff}
+
+@media (max-width:1023px) {
+.forge-roller .cw {flex-direction:column}
+.forge-roller .t-super {font-size:64px;line-height:62px}
+}
+
+@media (max-width:767px) {
+.forge-roller .t-h2 {font-size:36px;line-height:38px;letter-spacing:-1px}
+.forge-roller .t-super {font-size:44px;line-height:46px}
+}

@@ -1,0 +1,45 @@
+.forge-usecase img {display:block;max-width:100%}
+
+.forge-usecase .t-h3 {font-family:var(--font-heading);font-weight:900;font-size:var(--s2a-font-size-title-3);line-height:var(--s2a-lh-title-3);letter-spacing:var(--s2a-ls-title-3)}
+
+.forge-usecase .t-h6 {font-family:var(--font-heading);font-weight:900;font-size:var(--s2a-font-size-heading-6);line-height:var(--s2a-lh-heading-6);letter-spacing:var(--s2a-ls-heading-6)}
+
+.forge-usecase .t-body-md {font-family:var(--font-body);font-weight:400;font-size:var(--s2a-font-size-body-md);line-height:var(--s2a-lh-body-md)}
+
+.forge-usecase .grid {width:100%;max-width:1392px;display:flex;flex-direction:column;gap:8px}
+
+.forge-usecase .row {display:flex;gap:8px}
+
+.forge-usecase .bento {background:var(--bento-bg);border:2px solid rgba(255,255,255,0.1);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;flex:1 1 0;min-width:280px}
+
+.forge-usecase .bento .pic {position:relative;width:100%;aspect-ratio:692/560;overflow:hidden}
+
+.forge-usecase .bento .pic img {width:100%;height:100%;object-fit:cover;object-position:center}
+
+.forge-usecase .bento .txt {padding:48px;display:flex;flex-direction:column;gap:4px;color:#000}
+
+.forge-usecase .bento .txt p {color:var(--s2a-color-content-body-subtle)}
+
+.forge-usecase .bento.full {flex:1 1 100%;position:relative;width:100%;aspect-ratio:1392/637;border-radius:16px;overflow:hidden}
+
+.forge-usecase .bento.full img {position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+
+.forge-usecase .bento.full .scrim {position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.45),rgba(0,0,0,0) 55%)}
+
+.forge-usecase .bento.full .txt {position:absolute;left:0;right:0;bottom:0;color:#fff;max-width:540px}
+
+.forge-usecase .bento.full .txt p {color:#fff}
+
+.forge-usecase {background:#fff;color:#000;padding:0 124px;display:flex;flex-direction:column;align-items:flex-start;gap:40px}
+
+.forge-usecase .uc-title {padding:0 16px}
+
+@media (max-width:1023px) {
+.forge-usecase .row {flex-wrap:wrap}
+}
+
+@media (max-width:767px) {
+.forge-usecase .t-h3 {font-size:30px;line-height:32px}
+.forge-usecase {padding-left:20px;padding-right:20px}
+.forge-usecase .row {flex-direction:column}
+}
