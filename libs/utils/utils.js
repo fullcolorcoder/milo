@@ -126,6 +126,8 @@ const C2_BLOCKS = [
   'router-marquee',
   'section-metadata',
   'visually-hidden',
+  'forge-concierge',
+  'forge-quote',
 ];
 
 const AUTO_BLOCKS = [
