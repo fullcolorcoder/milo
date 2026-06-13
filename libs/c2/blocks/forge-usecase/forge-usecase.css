@@ -1,0 +1,130 @@
+.forge-usecase {
+  background: var(--color-black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 124px 124px 0;
+}
+
+.forge-usecase .usecase-title {
+  width: 100%;
+  padding: 0 16px;
+  color: var(--color-white);
+}
+
+.forge-usecase .t-title3 {
+  font-family: var(--s2a-font-family-heading);
+  font-weight: 900;
+  font-size: var(--fs-title-3);
+  line-height: var(--lh-title-3);
+  letter-spacing: var(--ls-title-3);
+}
+
+.forge-usecase .usecase-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.forge-usecase .bento-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.forge-usecase .bento {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-width: 280px;
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.forge-usecase .bento-badge {
+  position: absolute;
+  top: 46px;
+  left: 46px;
+  z-index: 2;
+}
+
+.forge-usecase .app-badge {
+  display: block;
+  width: 32px;
+  height: 32px;
+  border-radius: 7px;
+  flex: 0 0 auto;
+}
+
+.forge-usecase .bento-media {
+  width: 100%;
+  aspect-ratio: 692/560;
+  overflow: hidden;
+}
+
+.forge-usecase .bento-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.forge-usecase .bento-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 48px;
+}
+
+.forge-usecase .bento-copy h3 {
+  margin: 0;
+  color: var(--color-white);
+  max-width: 450px;
+}
+
+.forge-usecase .t-h6 {
+  font-family: var(--s2a-font-family-heading);
+  font-weight: 900;
+  font-size: var(--fs-h6);
+  line-height: var(--lh-h6);
+  letter-spacing: var(--ls-h6);
+}
+
+.forge-usecase .bento-copy p {
+  max-width: 450px;
+}
+
+.forge-usecase .t-body-md {
+  font-family: var(--s2a-font-family-body);
+  font-weight: 400;
+  font-size: var(--fs-body-md);
+  line-height: var(--lh-body-md);
+}
+
+.forge-usecase .sub {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 1023px) {
+  .forge-usecase .bento-row {
+    flex-direction: column;
+  }
+  .forge-usecase {
+    padding: 80px 32px 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .forge-usecase .usecase-title {
+    font-size: 32px;
+    line-height: 32px;
+  }
+  .forge-usecase .bento-copy {
+    padding: 24px;
+  }
+}

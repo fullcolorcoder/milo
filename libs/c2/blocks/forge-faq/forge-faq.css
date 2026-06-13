@@ -1,0 +1,43 @@
+.forge-faq .t-title2 {font-family:var(--s2a-font-family-heading);font-weight:900;font-size:var(--fs-title-2);line-height:var(--lh-title-2);letter-spacing:var(--ls-title-2);}
+
+.forge-faq .t-faq-q {font-family:var(--s2a-font-family-heading);font-weight:700;font-size:16px;line-height:1;letter-spacing:-0.16px;}
+
+.forge-faq .t-body-md {font-family:var(--s2a-font-family-body);font-weight:400;font-size:var(--fs-body-md);line-height:var(--lh-body-md);}
+
+.forge-faq {min-height:550px;background:var(--color-black);display:flex;flex-direction:column;padding:0 124px;}
+
+.forge-faq .faq-head {display:flex;align-items:center;justify-content:center;padding-bottom:10px;width:100%;}
+
+.forge-faq .faq-head h2 {margin:0;color:var(--color-white);width:100%;}
+
+.forge-faq .faq-list {display:flex;flex-direction:column;width:100%;}
+
+.forge-faq .faq-item {border-bottom:1px solid rgba(255,255,255,0.1);}
+
+.forge-faq .faq-q-btn {appearance:none;background:none;border:0;width:100%;display:flex;align-items:center;gap:40px;padding:32px 0;cursor:pointer;text-align:left;}
+
+.forge-faq .faq-q-btn .q {flex:1 1 0;min-width:0;color:var(--color-white);}
+
+.forge-faq .faq-icon {position:relative;width:12px;height:12px;flex:0 0 auto;}
+
+.forge-faq .faq-icon::before, .forge-faq .faq-icon::after {content:"";position:absolute;background:var(--color-white);transition:opacity .2s,transform .2s;}
+
+.forge-faq .faq-icon::before {left:0;top:5.5px;width:12px;height:1.5px;}
+
+.forge-faq .faq-icon::after {left:5.25px;top:0;width:1.5px;height:12px;}
+
+.forge-faq .faq-q-btn[aria-expanded="true"] .faq-icon::after {opacity:0;}
+
+.forge-faq .faq-panel {overflow:hidden;max-height:0;}
+
+.forge-faq .faq-panel[data-open="true"] {max-height:400px;}
+
+.forge-faq .faq-answer {padding:0 0 32px;color:var(--color-white);opacity:.7;width:587px;max-width:100%;}
+
+@media (max-width:1023px) {
+.forge-faq {padding:0 32px;}
+}
+
+@media (max-width:767px) {
+.forge-faq .faq-head h2 {font-size:34px;line-height:34px;}
+}

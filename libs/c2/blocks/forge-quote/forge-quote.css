@@ -1,0 +1,45 @@
+.forge-quote .t-title1 {font-family:var(--s2a-font-family-heading);font-weight:900;font-size:var(--fs-title-1);line-height:var(--lh-title-1);letter-spacing:var(--ls-title-1);}
+
+.forge-quote .t-body-md {font-family:var(--s2a-font-family-body);font-weight:400;font-size:var(--fs-body-md);line-height:var(--lh-body-md);}
+
+.forge-quote {min-height:746px;background:var(--merch-bg);display:flex;align-items:center;justify-content:center;}
+
+.forge-quote .quote-rail {flex:1 1 0;min-width:280px;height:650px;border-top:1px solid rgba(229,229,229,0.1);border-bottom:1px solid rgba(229,229,229,0.1);}
+
+.forge-quote .quote-center {display:flex;flex-direction:column;align-items:stretch;}
+
+.forge-quote .quote-strip {height:48px;width:100%;border-left:1px solid rgba(229,229,229,0.1);border-right:1px solid rgba(229,229,229,0.1);}
+
+.forge-quote .quote-copy {position:relative;width:1344px;max-width:100%;height:650px;border:1px solid rgba(229,229,229,0.1);display:flex;flex-direction:column;justify-content:space-between;padding:24px;}
+
+.forge-quote .quote-copy blockquote {margin:0;color:var(--color-white);}
+
+.forge-quote .quote-attr {display:flex;flex-direction:column;align-items:center;justify-content:center;height:48px;text-align:center;}
+
+.forge-quote .quote-attr .name {color:#fff;}
+
+.forge-quote .quote-attr .title {color:rgba(255,255,255,0.6);}
+
+.forge-quote .bombsite {position:absolute;width:37px;height:37px;opacity:.4;}
+
+.forge-quote .bombsite::before, .forge-quote .bombsite::after {content:"";position:absolute;background:rgba(229,229,229,0.5);}
+
+.forge-quote .bombsite::before {left:0;top:18px;width:37px;height:1px;}
+
+.forge-quote .bombsite::after {left:18px;top:0;width:1px;height:37px;}
+
+.forge-quote .bs-tl {left:-19px;top:-18.74px;}
+
+.forge-quote .bs-tr {right:-19px;top:-18.74px;}
+
+.forge-quote .bs-bl {left:-19px;bottom:-18.74px;}
+
+.forge-quote .bs-br {right:-19px;bottom:-18.74px;}
+
+@media (max-width:1023px) {
+.forge-quote .quote-copy {width:auto;}
+}
+
+@media (max-width:767px) {
+.forge-quote .quote-copy blockquote {font-size:40px;line-height:40px;letter-spacing:-1.6px;}
+}
