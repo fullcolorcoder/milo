@@ -1,0 +1,45 @@
+.forge-faq img {display:block;max-width:100%}
+
+.forge-faq .body-md {font-family:var(--font-body);font-weight:400;font-size:16px;line-height:20px;letter-spacing:0}
+
+.forge-faq .display-title-2 {font-family:var(--font-heading);font-weight:900;font-size:56px;line-height:56px;letter-spacing:-1.68px}
+
+.forge-faq .faq-question {font-family:var(--font-heading);font-weight:700;font-size:16px;line-height:18px;letter-spacing:-0.16px}
+
+.forge-faq {background:#000;color:#fff;min-height:549.98px;padding:0 124px}
+
+.forge-faq .faq-headline {color:#fff;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+
+.forge-faq .faq-list {margin-top:0}
+
+.forge-faq .faq-item {border-bottom:1px solid rgba(255,255,255,.1)}
+
+.forge-faq .faq-q {width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:32px 0;text-align:left;color:#fff;background:none;border:none;cursor:pointer}
+
+.forge-faq .faq-q .faq-question {color:#fff}
+
+.forge-faq .faq-icon {width:12px;height:12px;flex:none;position:relative;transition:transform .3s ease}
+
+.forge-faq .faq-icon svg {width:12px;height:12px;color:#fff}
+
+.forge-faq .faq-q[aria-expanded="true"] .faq-icon {transform:rotate(180deg)}
+
+.forge-faq .faq-a {overflow:hidden;max-height:0;transition:max-height .35s ease}
+
+.forge-faq .faq-a-inner {padding:0 0 32px;max-width:587px;color:rgba(255,255,255,.7)}
+
+.forge-faq .faq-q[aria-expanded="true"]+.faq-a {max-height:400px}
+
+@media (prefers-reduced-motion: reduce) {
+.forge-faq .faq-icon {transition:none}
+.forge-faq .faq-a {transition:none}
+}
+
+@media (max-width:1023px) {
+.forge-faq .display-title-2 {font-size:40px;line-height:42px;letter-spacing:-1.2px}
+.forge-faq {padding-left:40px;padding-right:40px;min-height:0}
+}
+
+@media (max-width:767px) {
+.forge-faq .display-title-2 {font-size:30px;line-height:32px;letter-spacing:-.8px}
+}

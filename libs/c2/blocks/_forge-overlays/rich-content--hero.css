@@ -1,0 +1,11 @@
+.rich-content.hero img {display:block;max-width:100%}
+
+.rich-content.hero main {max-width:1440px;margin:0 auto;overflow:hidden;background:#ffffff}
+
+.rich-content.hero section {position:relative;width:100%}
+
+.rich-content.hero {background:var(--s2a-hero-bg);color:#fff;border-radius:4px 4px 32px 32px;box-shadow:16px 24px 65px 0 rgba(0,0,0,0.45);min-height:3090.14px;padding:8px 8px 24px;display:flex;flex-direction:column}
+
+@media (max-width:1023px) {
+.rich-content.hero {min-height:0}
+}

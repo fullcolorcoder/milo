@@ -1,0 +1,112 @@
+.forge-richcontent img { display: block; max-width: 100% }
+
+.forge-richcontent {
+  min-height: 906px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 160px 40px 80px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+.forge-richcontent .rc-bg,
+.forge-richcontent .rc-bg img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.forge-richcontent .rc-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0) 39.45%,
+    rgba(0, 0, 0, 0) 74.49%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+
+.forge-richcontent .rc-top {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.forge-richcontent .eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-start;
+}
+
+.forge-richcontent .eyebrow {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.forge-richcontent .cc-badge {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 23.14px;
+  flex: none;
+}
+
+.forge-richcontent .cc-badge img { position: absolute }
+
+.forge-richcontent .cc-badge img:first-child {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.forge-richcontent .cc-badge img:last-child {
+  left: 50%;
+  top: 50%;
+  width: 16.5px;
+  height: 12.5px;
+  transform: translate(-50%, -50%);
+}
+
+.forge-richcontent .display-title-2 {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 56px;
+  letter-spacing: -1.68px;
+}
+
+.forge-richcontent .rc-headline {
+  max-width: 656px;
+  color: #fff;
+}
+
+@media (max-width: 1023px) {
+  .forge-richcontent { min-height: 0 }
+
+  .forge-richcontent .display-title-2 {
+    font-size: 40px;
+    line-height: 42px;
+    letter-spacing: -1.2px;
+  }
+}
+
+@media (max-width: 767px) {
+  .forge-richcontent .display-title-2 {
+    font-size: 30px;
+    line-height: 32px;
+    letter-spacing: -0.8px;
+  }
+}

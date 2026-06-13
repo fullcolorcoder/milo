@@ -1,0 +1,51 @@
+.forge-concierge img {display:block;max-width:100%}
+
+.forge-concierge .body-md {font-family:var(--font-body);font-weight:400;font-size:16px;line-height:20px;letter-spacing:0}
+
+.forge-concierge .body-sm {font-family:var(--font-body);font-weight:400;font-size:14px;line-height:18px;letter-spacing:0}
+
+.forge-concierge .body-xs {font-family:var(--font-body);font-weight:400;font-size:12px;line-height:18px;letter-spacing:0}
+
+.forge-concierge .display-title-2 {font-family:var(--font-heading);font-weight:900;font-size:56px;line-height:56px;letter-spacing:-1.68px}
+
+.forge-concierge {background:#000;color:#fff;min-height:408px;padding:0 120px 96px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+
+.forge-concierge .concierge-inner {display:flex;flex-direction:column;align-items:center;gap:24px;max-width:1200px;width:100%}
+
+.forge-concierge .concierge-title {color:#fff;text-align:center}
+
+.forge-concierge .prompt {display:flex;flex-direction:column;gap:24px;align-items:center;max-width:768px;width:100%}
+
+.forge-concierge .prompt-input {width:100%;border-radius:28px;background:rgba(255,255,255,.1);padding:1px;background-image:linear-gradient(rgba(255,255,255,.04),rgba(255,255,255,.04)),linear-gradient(90deg,#7155fa,#972ee3 45%,#d92361 75%,#d73220);background-origin:border-box;background-clip:padding-box,border-box;border:1px solid transparent}
+
+.forge-concierge .prompt-input-row {display:flex;align-items:center;gap:16px;height:54px;padding:12px}
+
+.forge-concierge .prompt-ai {width:32px;height:32px;display:flex;align-items:center;justify-content:center;flex:none}
+
+.forge-concierge .prompt-ai svg {width:24px;height:24px}
+
+.forge-concierge .prompt-field {flex:1;background:transparent;border:none;outline:none;color:rgba(255,255,255,.64);font-family:var(--font-body);font-size:16px;line-height:20px;min-width:0;padding:0}
+
+.forge-concierge .prompt-field::placeholder {color:rgba(255,255,255,.64)}
+
+.forge-concierge .prompt-send {width:32px;height:32px;border-radius:999px;background:#fff;border:none;display:flex;align-items:center;justify-content:center;flex:none;cursor:pointer;padding:0}
+
+.forge-concierge .prompt-send svg {width:16px;height:16px;color:#000}
+
+.forge-concierge .suggestions {display:flex;flex-wrap:wrap;gap:8px;justify-content:center;width:100%}
+
+.forge-concierge .suggestion {display:inline-flex;align-items:center;padding:11px 16px;border-radius:18px;background:rgba(255,255,255,.1);border:1.5px solid transparent;background-image:linear-gradient(rgba(30,30,30,1),rgba(30,30,30,1)),linear-gradient(90deg,#d73220,#d92361 40%,#7155fa);background-origin:border-box;background-clip:padding-box,border-box;color:rgba(255,255,255,.8);cursor:pointer;font-family:var(--font-body);-webkit-appearance:none;appearance:none}
+
+.forge-concierge .concierge-legal {color:rgba(255,255,255,.64);text-align:center;max-width:1000px;margin:0}
+
+.forge-concierge .concierge-legal a {color:inherit;text-decoration:underline}
+
+@media (max-width:1023px) {
+.forge-concierge .display-title-2 {font-size:40px;line-height:42px;letter-spacing:-1.2px}
+.forge-concierge {min-height:0}
+}
+
+@media (max-width:767px) {
+.forge-concierge .display-title-2 {font-size:30px;line-height:32px;letter-spacing:-.8px}
+.forge-concierge {padding:48px 24px}
+}

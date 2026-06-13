@@ -1,0 +1,103 @@
+.forge-hero img {display:block;max-width:100%}
+
+.forge-hero .eyebrow {font-family:var(--font-body);font-weight:700;font-size:16px;line-height:20px;letter-spacing:0}
+
+.forge-hero .label {font-family:var(--font-body);font-weight:700;font-size:14px;line-height:18px;letter-spacing:0}
+
+.forge-hero .body-lg {font-family:var(--font-body);font-weight:400;font-size:20px;line-height:24px;letter-spacing:0}
+
+.forge-hero .body-md {font-family:var(--font-body);font-weight:400;font-size:16px;line-height:20px;letter-spacing:0}
+
+.forge-hero .display-title-1 {font-family:var(--font-heading);font-weight:900;font-size:80px;line-height:76px;letter-spacing:-3.2px}
+
+.forge-hero .display-title-2 {font-family:var(--font-heading);font-weight:900;font-size:56px;line-height:56px;letter-spacing:-1.68px}
+
+.forge-hero .display-heading-6 {font-family:var(--font-heading);font-weight:900;font-size:18px;line-height:18px;letter-spacing:-0.2px}
+
+.forge-hero .cc-badge {position:relative;display:inline-block;width:24px;height:23.14px;flex:none}
+
+.forge-hero .cc-badge img {position:absolute}
+
+.forge-hero .cc-badge img:first-child {inset:0;width:100%;height:100%}
+
+.forge-hero .cc-badge img:last-child {left:50%;top:50%;width:16.5px;height:12.5px;transform:translate(-50%,-50%)}
+
+.forge-hero .cc-badge--lg {width:32px;height:32px}
+
+.forge-hero .cc-badge--lg img:last-child {width:22px;height:16.7px}
+
+.forge-hero .eyebrow-row {display:flex;align-items:center;gap:8px;justify-content:center}
+
+.forge-hero {background:var(--s2a-hero-bg);color:#fff;border-radius:4px 4px 32px 32px;box-shadow:16px 24px 65px 0 rgba(0,0,0,0.45);padding:8px 8px 24px;display:flex;flex-direction:column}
+
+.forge-hero .nav-bar {display:flex;height:64px;align-items:center;justify-content:space-between;padding:0 16px;border-radius:16px;backdrop-filter:blur(64px)}
+
+.forge-hero .nav-left {display:flex;align-items:center;gap:24px;height:64px}
+
+.forge-hero .nav-logo img {width:67px;height:16px}
+
+.forge-hero .nav-right {display:flex;align-items:center;gap:12px}
+
+.forge-hero .nav-apps {width:18px;height:18px;color:#fff;display:flex;align-items:center;justify-content:center;background:none;border:none;cursor:pointer;padding:0}
+
+.forge-hero .nav-signin {height:40px;padding:0 24px;display:inline-flex;align-items:center;justify-content:center;background:#fff;color:#000;border:1px solid #fff;border-radius:75px;backdrop-filter:blur(16.5px);text-decoration:none}
+
+.forge-hero .hero-copy {display:flex;flex-direction:column;align-items:center;gap:16px;padding:100px 120px 0;text-align:center}
+
+.forge-hero .hero-headline {max-width:800px;color:#fff}
+
+.forge-hero .hero-body {width:658px;max-width:100%;color:#fff}
+
+.forge-hero .hero-cta {margin-top:8px;height:40px;padding:0 24px;display:inline-flex;align-items:center;justify-content:center;border-radius:75px;background:var(--s2a-hero-cta);color:#fff;text-decoration:none;backdrop-filter:blur(16.5px)}
+
+.forge-hero .hero-asset {display:flex;justify-content:center;padding:92px 24px 0}
+
+.forge-hero .hero-asset-inner {position:relative;width:963px;max-width:100%;aspect-ratio:963/747}
+
+.forge-hero .hero-asset-inner>picture, .forge-hero .hero-asset-inner>picture img {width:100%;height:100%;object-fit:contain}
+
+.forge-hero .promo-cta {position:absolute;left:34%;top:46%;display:flex;align-items:center;justify-content:space-between;gap:0;background:var(--s2a-color-gray-800);border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.45)}
+
+.forge-hero .promo-left {display:flex;align-items:center;gap:12px;padding:12px}
+
+.forge-hero .promo-left .eyebrow {color:#fff;white-space:nowrap}
+
+.forge-hero .promo-right {padding:12px}
+
+.forge-hero .promo-btn {width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:var(--s2a-color-transparent-white-16);border:1px solid var(--s2a-color-transparent-white-12);border-radius:6px;color:#fff;text-decoration:none}
+
+.forge-hero .bentos {padding:100px 24px 0;display:flex;flex-direction:column;align-items:center;gap:40px}
+
+.forge-hero .bentos-title {color:#fff;text-align:center}
+
+.forge-hero .bento-grid {display:grid;grid-template-columns:repeat(2,1fr);gap:8px;width:100%;max-width:1392px}
+
+.forge-hero .bento-card {background:var(--s2a-card-bg);border:2px solid var(--s2a-card-border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;height:718px}
+
+.forge-hero .bento-img {flex:1 1 auto;min-height:0;width:100%;overflow:hidden}
+
+.forge-hero .bento-img img {width:100%;height:100%;object-fit:cover}
+
+.forge-hero .bento-text {padding:48px;display:flex;flex-direction:column;gap:4px}
+
+.forge-hero .bento-text h3 {color:#000}
+
+.forge-hero .bento-text p {color:var(--s2a-color-content-body-subtle-light)}
+
+@media (max-width:1023px) {
+.forge-hero {min-height:0}
+.forge-hero .hero-copy {padding:64px 24px 0}
+.forge-hero .display-title-1 {font-size:56px;line-height:54px;letter-spacing:-2.2px}
+.forge-hero .display-title-2 {font-size:40px;line-height:42px;letter-spacing:-1.2px}
+.forge-hero .bento-grid {grid-template-columns:1fr}
+.forge-hero .bento-card {height:auto;min-height:0}
+.forge-hero .bento-img {flex:none;aspect-ratio:16/10}
+}
+
+@media (max-width:767px) {
+.forge-hero .hero-headline {font-size:13vw}
+.forge-hero .hero-body {width:100%}
+.forge-hero .display-title-1 {font-size:40px;line-height:40px;letter-spacing:-1.4px}
+.forge-hero .display-title-2 {font-size:30px;line-height:32px;letter-spacing:-.8px}
+.forge-hero .promo-cta {position:static;margin:16px auto 0}
+}
