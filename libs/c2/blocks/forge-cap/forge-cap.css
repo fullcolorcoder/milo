@@ -1,0 +1,27 @@
+.forge-cap {background:var(--color-bg);padding-block:var(--section-padding)}
+
+.forge-cap img {max-width:100%;display:block}
+
+.forge-cap .wrap {max-width:var(--max-width);margin:0 auto;padding-inline:var(--spacing-lg)}
+
+.forge-cap .cap__grid {display:grid;grid-template-columns:repeat(4,1fr);gap:var(--spacing-lg)}
+
+.forge-cap .cap__item {display:flex;flex-direction:column;gap:10px}
+
+.forge-cap .cap__item img {border-radius:var(--radius-sm);aspect-ratio:16/10;object-fit:cover;width:100%;height:auto}
+
+.forge-cap .cap__item .cap__caption {margin:0;font-weight:700;font-size:var(--body-sm);line-height:1.3}
+
+.forge-cap .badges {display:flex;gap:12px;align-items:center;margin-top:var(--spacing-xl);flex-wrap:wrap}
+
+.forge-cap .badges img {height:40px;width:auto}
+
+.forge-cap .badges .meta {color:var(--color-secondary);font-size:var(--body-sm)}
+
+@media (max-width:1024px) {
+.forge-cap .cap__grid {grid-template-columns:repeat(2,1fr)}
+}
+
+@media (max-width:640px) {
+.forge-cap .cap__grid {grid-template-columns:1fr}
+}
