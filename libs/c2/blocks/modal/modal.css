@@ -546,3 +546,6 @@
 body:has(.dialog-modal) #adbMsgClientWrapper #adbmsgContainer > * {
   z-index: var(--jarvis-z-index-override);
 }
+
+/* forge loose-band overlay (delta wins over stock) */
+@import '../_forge-overlays/modal--long-form.css';

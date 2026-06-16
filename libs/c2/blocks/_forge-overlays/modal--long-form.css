@@ -1,0 +1,3 @@
+.modal.long-form img, .modal.long-form video, .modal.long-form svg, .modal.long-form picture {max-width:100%;height:auto;display:block}
+
+.modal.long-form main {width:100%;position:relative;overflow:hidden}

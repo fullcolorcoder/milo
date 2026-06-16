@@ -1,0 +1,188 @@
+/* forge-usecase — light full-width "use case" bento grid.
+   All selectors scoped under .forge-usecase (L10/L19). Page-level tokens
+   (--font-*, --color-*, --s2a-*) come from the linked page globals, not here. */
+
+.forge-usecase {
+  background: #fff;
+  /* App-mnemonic brand tiles (C22): dark tile / bright glyph. */
+  --appicon-fi-tile: #1f0a33;
+  --appicon-fi-mnemonic: #b14bff;
+  --appicon-fr-tile: #15103d;
+  --appicon-fr-mnemonic: #7b73ff;
+  --appicon-ai-tile: #1a0a00;
+  --appicon-ai-mnemonic: #ff9a00;
+  --appicon-id-tile: #2d0013;
+  --appicon-id-mnemonic: #ff3366;
+  --appicon-ex-tile: #2e0a1e;
+  --appicon-ex-mnemonic: #fb5bd0;
+  --appicon-pr-tile: #00005b;
+  --appicon-pr-mnemonic: #9999ff;
+  --appicon-ae-tile: #00005b;
+  --appicon-ae-mnemonic: #9999ff;
+  --appicon-ps-tile: #001e36;
+  --appicon-ps-mnemonic: #31a8ff;
+  --appicon-lr-tile: #001e36;
+  --appicon-lr-mnemonic: #31a8ff;
+  --uc-tile-border: rgba(0, 0, 0, 0.08);
+}
+
+.forge-usecase img,
+.forge-usecase picture,
+.forge-usecase svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Section rhythm (C21): vertical padding consistent with C2 siblings, plus the
+   horizontal canvas inset from Figma. Reflows to container via max-width (L27). */
+.forge-usecase .usecase__inner {
+  max-width: var(--canvas-w, 1440px);
+  margin: 0 auto;
+  padding: 80px 124px 124px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.forge-usecase .usecase__title {
+  color: #000;
+  margin: 0;
+  padding: 0 16px;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 48px;
+  letter-spacing: -1.44px;
+}
+
+.forge-usecase .usecase__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.forge-usecase .row-2 {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  align-items: stretch;
+}
+
+/* Bento tile: badge over media over copy, copy pinned to the bottom. */
+.forge-usecase .bento {
+  position: relative;
+  background: var(--color-bento-bg, #f6f6f6);
+  border: 1px solid var(--uc-tile-border);
+  border-radius: var(--s2a-radius-md, 16px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 637px;
+}
+
+.forge-usecase .bento__img {
+  width: 100%;
+  aspect-ratio: 692 / 560;
+  overflow: hidden;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.forge-usecase .bento__img picture,
+.forge-usecase .bento__img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.forge-usecase .bento__copy {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 48px;
+}
+
+.forge-usecase .bento__copy-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 450px;
+  width: 100%;
+}
+
+.forge-usecase .bento__h {
+  color: #000;
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 18px;
+  letter-spacing: -0.2px;
+}
+
+.forge-usecase .bento__b {
+  color: var(--color-content-body-subtle-dark, rgba(0, 0, 0, 0.64));
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+/* App-mnemonic badge, pinned top-left of the tile. */
+.forge-usecase .appicon {
+  position: absolute;
+  left: 46px;
+  top: 46px;
+  z-index: 3;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: -0.5px;
+  flex: none;
+  overflow: hidden;
+  color: #fff;
+}
+
+.forge-usecase .appicon img {
+  width: 32px;
+  height: 32px;
+}
+
+.forge-usecase .appicon--firefly { background: linear-gradient(135deg, #ff6f3c, #ff2bb0); }
+.forge-usecase .appicon--fi { background: var(--appicon-fi-tile); color: var(--appicon-fi-mnemonic); }
+.forge-usecase .appicon--fr { background: var(--appicon-fr-tile); color: var(--appicon-fr-mnemonic); }
+.forge-usecase .appicon--ai { background: var(--appicon-ai-tile); color: var(--appicon-ai-mnemonic); }
+.forge-usecase .appicon--id { background: var(--appicon-id-tile); color: var(--appicon-id-mnemonic); }
+.forge-usecase .appicon--ex { background: var(--appicon-ex-tile); color: var(--appicon-ex-mnemonic); }
+.forge-usecase .appicon--pr { background: var(--appicon-pr-tile); color: var(--appicon-pr-mnemonic); }
+.forge-usecase .appicon--ae { background: var(--appicon-ae-tile); color: var(--appicon-ae-mnemonic); }
+.forge-usecase .appicon--ps { background: var(--appicon-ps-tile); color: var(--appicon-ps-mnemonic); }
+.forge-usecase .appicon--lr { background: var(--appicon-lr-tile); color: var(--appicon-lr-mnemonic); }
+
+@media (max-width: 1023px) {
+  .forge-usecase .usecase__inner { padding: 64px 40px 80px; }
+  .forge-usecase .usecase__title { font-size: 36px; line-height: 38px; }
+  .forge-usecase .row-2 { flex-wrap: wrap; }
+}
+
+@media (max-width: 767px) {
+  .forge-usecase .row-2 { flex-direction: column; }
+  .forge-usecase .bento { min-height: 0; }
+  .forge-usecase .bento__copy { padding: 32px; }
+  .forge-usecase .appicon { left: 32px; top: 32px; }
+}
