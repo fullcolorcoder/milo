@@ -1,0 +1,189 @@
+/* forge-jumpnav — dark full-width jump-navigation hero band.
+   Every selector is scoped under .forge-jumpnav (L10/L19). Layout intent is
+   baked from the Figma frame (column counts / gaps / ratios), never literal
+   design-width pixels, so the band reflows to its container (L27). */
+
+.forge-jumpnav {
+  --jn-ink: #fff;
+  --jn-band: #0a0a0a;
+  --jn-tile-bg: var(--s2a-color-transparent-white-16, rgba(255, 255, 255, 0.16));
+  --jn-tile-border: var(--s2a-color-transparent-white-12, rgba(255, 255, 255, 0.12));
+  position: relative;
+  overflow: hidden;
+  min-height: 906px;
+  padding: 0;
+  background: var(--jn-band);
+  color: var(--jn-ink);
+}
+
+.forge-jumpnav img,
+.forge-jumpnav picture,
+.forge-jumpnav svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Background photo: absolutely positioned, so it never participates in flow. */
+.forge-jumpnav .jn-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.forge-jumpnav .jn-bg .bg,
+.forge-jumpnav img.bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.forge-jumpnav .jn-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0) 39%,
+    rgba(0, 0, 0, 0) 74%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+
+.forge-jumpnav .jn-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1440px;
+  min-height: 906px;
+  margin: 0 auto;
+  padding: 160px 40px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.forge-jumpnav .jn-top {
+  max-width: 656px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2a-spacing-md, 16px);
+  padding: 0 16px;
+}
+
+.forge-jumpnav .jn-eyebrow-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2a-spacing-xs, 8px);
+  border-radius: var(--s2a-border-radius-sm, 8px);
+}
+
+.forge-jumpnav .jn-mnemonic {
+  flex: none;
+  width: 24px;
+  height: 24px;
+}
+
+.forge-jumpnav .jn-mnemonic svg {
+  width: 24px;
+  height: 24px;
+}
+
+.forge-jumpnav .jn-eyebrow {
+  font-family: "Adobe Clean", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--jn-ink);
+}
+
+.forge-jumpnav .jn-title {
+  margin: 0;
+  max-width: 656px;
+  color: var(--jn-ink);
+  font-family: "Adobe Clean Display", "Adobe Clean", sans-serif;
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 1;
+  letter-spacing: -1.68px;
+}
+
+.forge-jumpnav .jn-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s2a-spacing-xl, 32px);
+  padding: 0 16px;
+}
+
+.forge-jumpnav .jn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2a-spacing-xs, 8px);
+  /* C20: dark-band links set their own readable colour, never inherit a{color:#000}. */
+  color: var(--jn-ink);
+  text-decoration: none;
+}
+
+.forge-jumpnav .jn-link:hover .jn-link-label,
+.forge-jumpnav .jn-link:focus-visible .jn-link-label {
+  text-decoration: underline;
+}
+
+.forge-jumpnav .jn-ico {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: var(--jn-tile-bg);
+  border: 1px solid var(--jn-tile-border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--jn-ink);
+}
+
+.forge-jumpnav .jn-ico svg {
+  width: 14px;
+  height: 14px;
+}
+
+.forge-jumpnav .jn-link-label {
+  font-family: "Adobe Clean Display", "Adobe Clean", sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: -0.48px;
+}
+
+@media (max-width: 900px) {
+  .forge-jumpnav,
+  .forge-jumpnav .jn-inner {
+    min-height: 0;
+  }
+
+  .forge-jumpnav .jn-inner {
+    padding: 96px 24px 64px;
+    gap: 40px;
+  }
+
+  .forge-jumpnav .jn-title {
+    font-size: 40px;
+    letter-spacing: -1.2px;
+  }
+
+  .forge-jumpnav .jn-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .forge-jumpnav .jn-link-label {
+    font-size: 20px;
+  }
+}
