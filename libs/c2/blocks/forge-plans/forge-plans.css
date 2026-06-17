@@ -1,0 +1,280 @@
+/* forge-plans — "Choose a plan." pricing section. CSS authored toward the Figma
+   visual target (truth-target.css + frame), keyed ONLY on the classes init()
+   stamps on the reconstructed DOM (DA strips the authored Figma classes). All
+   selectors are scoped under .forge-plans; no global resets, tokens, or fonts. */
+
+.forge-plans {
+  background: #000;
+  color: #fff;
+  /* C21 section rhythm: match C2 siblings' vertical padding. */
+  padding: var(--s2a-layout-section-top, 124px) 48px var(--s2a-layout-section-bottom, 80px);
+}
+
+.forge-plans img,
+.forge-plans picture,
+.forge-plans svg { max-width: 100%; height: auto; display: block; }
+
+.forge-plans .section-inner {
+  max-width: 1288px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.forge-plans .t-title2 {
+  margin: 0;
+  color: #fff;
+  text-align: center;
+  font-family: var(--s2a-font-family-heading), sans-serif;
+  font-weight: 900;
+  font-size: var(--s2a-typography-font-size-title-2, 56px);
+  line-height: var(--s2a-typography-line-height-title-2, 1);
+  letter-spacing: var(--s2a-typography-letter-spacing-title-2, -1.5px);
+}
+
+/* Audience tab pill group */
+.forge-plans .plan-tabs {
+  display: inline-flex;
+  background: #1f1f1f;
+  border-radius: 999px;
+  padding: 4px;
+  margin-top: 32px;
+}
+
+.forge-plans .plan-tab {
+  border: none;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  padding: 8px 20px;
+  cursor: pointer;
+  font-family: var(--s2a-font-family-body), sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.forge-plans .plan-tab.is-active { background: #fff; color: #000; }
+
+/* Two comparison cards */
+.forge-plans .plan-cards {
+  display: flex;
+  gap: 24px;
+  width: 100%;
+  max-width: 1192px;
+  margin-top: 48px;
+  align-items: stretch;
+}
+
+.forge-plans .plan-card {
+  flex: 1 1 0;
+  border-radius: 24px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.forge-plans .plan-card.dark {
+  background: #131313;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.forge-plans .plan-card.light { background: #fff; color: #000; }
+
+/* C20: links inside the dark section must set an explicit readable color,
+   never inherit the global a{color:#000}. */
+.forge-plans .plan-card a { color: inherit; }
+
+.forge-plans .plan-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--s2a-font-family-body), sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.forge-plans .plan-card.dark .plan-eyebrow { color: rgba(255, 255, 255, 0.7); }
+.forge-plans .plan-card.light .plan-eyebrow { color: #505050; }
+
+.forge-plans .plan-mnemonic {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  overflow: hidden;
+  flex: none;
+  display: block;
+}
+
+.forge-plans .plan-mnemonic img,
+.forge-plans .plan-mnemonic picture {
+  width: 24px;
+  height: 24px;
+  aspect-ratio: 1 / 1; /* C19: reserve the badge box before the image loads. */
+  object-fit: cover;
+}
+
+.forge-plans .t-plantitle {
+  margin: 16px 0 8px;
+  font-family: var(--s2a-font-family-heading), sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: -0.4px;
+}
+
+.forge-plans .plan-desc {
+  margin: 0;
+  font-family: var(--s2a-font-family-body), sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.forge-plans .plan-card.dark .plan-desc { color: rgba(255, 255, 255, 0.8); }
+.forge-plans .plan-card.light .plan-desc { color: #505050; }
+
+.forge-plans .plan-see {
+  font-size: 14px;
+  line-height: 18px;
+  text-decoration: underline;
+  margin-top: 8px;
+  display: inline-block;
+  align-self: flex-start;
+}
+
+.forge-plans .plan-price-old {
+  font-family: var(--s2a-font-family-body), sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  text-decoration: line-through;
+  color: #888;
+  margin: 24px 0 0;
+}
+
+.forge-plans .t-price {
+  font-family: var(--s2a-font-family-heading), sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 1.1;
+  letter-spacing: -0.2px;
+}
+
+.forge-plans .plan-price { margin: 24px 0 0; }
+.forge-plans .plan-price-old + .plan-price { margin-top: 2px; }
+
+.forge-plans .plan-billing {
+  margin: 4px 0 0;
+  font-family: var(--s2a-font-family-body), sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.forge-plans .plan-card.dark .plan-billing { color: rgba(255, 255, 255, 0.7); }
+.forge-plans .plan-card.light .plan-billing { color: #505050; }
+
+/* Buttons */
+.forge-plans .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 999px;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  font-family: var(--s2a-font-family-body), sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.forge-plans .btn-outline-light {
+  background: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  padding: 12px 24px;
+}
+
+.forge-plans .btn-accent {
+  background: var(--s2a-color-accent-blue, #3b63fb);
+  color: #fff;
+  padding: 14px 24px;
+}
+
+.forge-plans .plan-cta { margin-top: 24px; width: 100%; }
+
+.forge-plans .plan-secure {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  font-family: var(--s2a-font-family-body), sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.forge-plans .plan-card.dark .plan-secure { color: rgba(255, 255, 255, 0.7); }
+.forge-plans .plan-card.light .plan-secure { color: #505050; }
+
+/* Feature groups */
+.forge-plans .plan-feats {
+  margin-top: 24px;
+  border-top: 1px solid;
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.forge-plans .plan-card.dark .plan-feats { border-color: rgba(255, 255, 255, 0.12); }
+.forge-plans .plan-card.light .plan-feats { border-color: rgba(0, 0, 0, 0.1); }
+
+.forge-plans .feat-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--s2a-font-family-body), sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  margin-bottom: 8px;
+}
+
+.forge-plans .feat-group ul {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.forge-plans .feat-group li {
+  font-family: var(--s2a-font-family-body), sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.forge-plans .plan-card.dark .feat-group li { color: rgba(255, 255, 255, 0.8); }
+.forge-plans .plan-card.light .feat-group li { color: #292929; }
+
+.forge-plans .feat-group li u { text-decoration: underline; }
+
+.forge-plans .forge-plans-ico { width: 14px; height: 14px; flex: none; display: inline-flex; }
+.forge-plans .forge-plans-ico svg { width: 14px; height: 14px; }
+
+.forge-plans .plans-allbtn { margin: 48px auto 0; }
+
+@media (max-width: 900px) {
+  .forge-plans { padding-left: 24px; padding-right: 24px; }
+  .forge-plans .plan-cards { flex-direction: column; }
+}
+
+@media (max-width: 600px) {
+  .forge-plans .t-title2 { font-size: 36px; line-height: 38px; letter-spacing: -1px; }
+}

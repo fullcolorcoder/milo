@@ -1,0 +1,135 @@
+/* forge-faq — full-width dark, rounded-top FAQ accordion. All selectors are
+   scoped under .forge-faq (L10). Tokens live inside the scope, never :root (L19). */
+
+.forge-faq {
+  --faq-divider: rgba(255, 255, 255, 0.1);
+  --faq-answer: rgba(255, 255, 255, 0.7);
+  background: var(--s2a-color-background-inverse, #000);
+  color: var(--s2a-color-text-inverse, #fff);
+  border-radius: 32px 32px 0 0;
+  padding: 124px 0 80px;
+}
+
+.forge-faq svg,
+.forge-faq picture,
+.forge-faq img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.forge-faq .section-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 124px;
+  position: relative;
+}
+
+.forge-faq .t-title2 {
+  font-family: var(--s2a-font-family-heading), sans-serif;
+  font-weight: 900;
+  font-size: var(--s2a-typography-font-size-title-2, 44px);
+  line-height: var(--s2a-typography-line-height-title-2, 46px);
+  letter-spacing: var(--s2a-typography-letter-spacing-title-2, -1px);
+}
+
+.forge-faq .faq-title {
+  margin: 0;
+  color: inherit;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--faq-divider);
+}
+
+.forge-faq .faq-list {
+  margin-top: 32px;
+}
+
+.forge-faq .faq-item {
+  border-bottom: 1px solid var(--faq-divider);
+}
+
+.forge-faq .t-faqq {
+  font-family: var(--s2a-font-family-heading), sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: -0.16px;
+}
+
+.forge-faq .faq-q {
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 32px 0;
+  text-align: left;
+  color: inherit;
+}
+
+.forge-faq .faq-q .chev {
+  width: 12px;
+  height: 12px;
+  flex: none;
+  color: inherit;
+  transition: transform 0.2s ease;
+}
+
+.forge-faq .faq-item.is-open .faq-q .chev {
+  transform: rotate(180deg);
+}
+
+.forge-faq .faq-a {
+  display: none;
+  padding: 0 0 32px;
+  max-width: 587px;
+  color: var(--faq-answer);
+  font-family: var(--s2a-font-family-body), sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.forge-faq .faq-item.is-open .faq-a {
+  display: block;
+}
+
+.forge-faq .faq-a a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .forge-faq .faq-q .chev {
+    transition: none;
+  }
+}
+
+@media (max-width: 1023px) {
+  .forge-faq {
+    padding: 80px 0 64px;
+  }
+
+  .forge-faq .section-inner {
+    padding: 0 48px;
+  }
+}
+
+@media (max-width: 767px) {
+  .forge-faq .t-title2 {
+    font-size: 36px;
+    line-height: 38px;
+    letter-spacing: -1px;
+  }
+
+  .forge-faq .section-inner {
+    padding: 0 24px;
+  }
+
+  .forge-faq .faq-q {
+    gap: 24px;
+    padding: 24px 0;
+  }
+}

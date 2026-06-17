@@ -1,0 +1,93 @@
+/* forge-featshow — feature-showcase section.
+   Authored toward truth-target.css + the Figma frame: a large rounded/shadowed
+   app-showcase window centered on a peachy radial-gradient stage with a pill CTA
+   below. Every rule is scoped to .forge-featshow and keys ONLY on the classes
+   the decorator stamps (.forge-featshow-inner / -window / -cta / -button). */
+
+.forge-featshow {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      62% 58% at 50% 46%,
+      rgba(240, 182, 176, 0.95) 0%,
+      rgba(214, 176, 162, 0.85) 42%,
+      rgba(201, 170, 158, 0.6) 68%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    var(--s2a-color-background-default, #fff);
+  padding: var(--s2a-layout-lg, 124px) var(--s2a-spacing-2xl, 40px) 80px;
+}
+
+.forge-featshow .forge-featshow-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.forge-featshow .forge-featshow-window {
+  width: 1292px;
+  max-width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.28);
+}
+
+.forge-featshow .forge-featshow-window picture {
+  display: block;
+  width: 100%;
+}
+
+.forge-featshow .forge-featshow-window img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1292 / 808;
+  object-fit: cover;
+}
+
+.forge-featshow .forge-featshow-cta {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.forge-featshow .forge-featshow-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s2a-spacing-xs, 8px);
+  padding: 12px 24px;
+  border: 2px solid var(--s2a-color-content-default, #000);
+  border-radius: var(--s2a-border-radius-999, 999px);
+  background: transparent;
+  color: var(--s2a-color-content-default, #000);
+  font-family: var(--s2a-font-family-body, "Adobe Clean"), sans-serif;
+  font-weight: 700;
+  font-size: var(--s2a-typography-font-size-body-sm, 14px);
+  line-height: var(--s2a-typography-line-height-body-sm, 18px);
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.forge-featshow .forge-featshow-button:hover {
+  background: var(--s2a-color-content-default, #000);
+  color: var(--s2a-color-content-inverse, #fff);
+}
+
+@media (max-width: 767px) {
+  .forge-featshow {
+    padding-left: var(--s2a-spacing-lg, 24px);
+    padding-right: var(--s2a-spacing-lg, 24px);
+  }
+
+  .forge-featshow .forge-featshow-inner {
+    gap: var(--s2a-spacing-lg, 24px);
+  }
+}

@@ -1,0 +1,235 @@
+/* forge-ai — "The smartest Photoshop ever." section. Authored toward
+   truth-target.css + the Figma frame, scoped to .forge-ai and keyed ONLY on the
+   classes the decorator stamps at runtime (DA strips the authored Figma classes,
+   so the truth-target selectors are TRANSLATED, not ported). */
+.forge-ai {
+  --ai-dark: #0f0d17;
+  --ai-panel-bg: #1a1410;
+  --ai-on-dark: rgba(255, 255, 255, 0.85);
+  --ai-on-dark-dim: rgba(255, 255, 255, 0.6);
+  background: var(--s2a-color-background-default, #fff);
+  display: flex;
+  flex-direction: column;
+}
+.forge-ai .forge-ai-inner { display: flex; flex-direction: column; width: 100%; }
+.forge-ai img,
+.forge-ai picture { display: block; max-width: 100%; height: auto; }
+
+/* Typography */
+.forge-ai .ai-title,
+.forge-ai .ai-more-title {
+  margin: 0;
+  font-family: var(--s2a-font-family-heading), adobe-clean, sans-serif;
+  font-weight: 900;
+  font-size: var(--s2a-typography-font-size-title-2, 44px);
+  line-height: var(--s2a-typography-line-height-title-2, 1.05);
+  letter-spacing: var(--s2a-typography-letter-spacing-title-2, -1px);
+}
+.forge-ai .ai-eyebrow {
+  margin: 0;
+  font-family: var(--s2a-font-family-body), adobe-clean, sans-serif;
+  font-weight: 700;
+  font-size: var(--s2a-typography-font-size-eyebrow, 16px);
+  line-height: var(--s2a-typography-line-height-eyebrow, 1.2);
+  color: var(--s2a-color-gray-700, #464646);
+}
+.forge-ai .ai-sub {
+  margin: 0;
+  font-family: var(--s2a-font-family-body), adobe-clean, sans-serif;
+  font-size: var(--s2a-typography-font-size-body-md, 18px);
+  line-height: var(--s2a-typography-line-height-body-md, 1.4);
+  color: var(--s2a-color-content-body-strong, #292929);
+}
+
+/* Smart panel */
+.forge-ai .ai-smart {
+  background: var(--s2a-color-background-default, #fff);
+  padding: var(--s2a-layout-section-top, 124px) 40px 0;
+}
+.forge-ai .ai-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--s2a-spacing-md, 16px);
+}
+.forge-ai .ai-head .ai-sub { max-width: 540px; }
+.forge-ai .ai-panel {
+  position: relative;
+  max-width: 1216px;
+  margin: 40px auto 0;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--ai-panel-bg);
+  min-height: 560px;
+}
+.forge-ai .ai-panel > picture {
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 72%;
+  height: 100%;
+}
+.forge-ai .ai-panel > picture > img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Accordion overlay */
+.forge-ai .ai-accordion {
+  position: absolute;
+  top: 40px;
+  left: 32px;
+  width: 320px;
+  max-width: calc(100% - 64px);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  z-index: 2;
+}
+.forge-ai .ai-acc-title { margin: 0; }
+.forge-ai .ai-acc-trigger {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--s2a-font-family-heading), adobe-clean, sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: -0.3px;
+  color: var(--ai-on-dark-dim);
+}
+.forge-ai .ai-acc-item.is-open .ai-acc-trigger { color: #fff; }
+.forge-ai .ai-acc-ico {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.15);
+  position: relative;
+}
+.forge-ai .ai-acc-ico::before {
+  content: "+";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  color: var(--ai-on-dark-dim);
+}
+.forge-ai .ai-acc-item.is-open .ai-acc-ico { background: var(--s2a-color-accent, #1473e6); }
+.forge-ai .ai-acc-item.is-open .ai-acc-ico::before { content: "\2713"; color: #fff; font-weight: 700; }
+.forge-ai .ai-acc-body {
+  margin: 8px 0 0 34px;
+  max-width: 240px;
+  font-family: var(--s2a-font-family-body), adobe-clean, sans-serif;
+  font-size: var(--s2a-typography-font-size-body-sm, 14px);
+  line-height: var(--s2a-typography-line-height-body-sm, 1.4);
+  color: var(--ai-on-dark);
+  display: none;
+}
+.forge-ai .ai-acc-item.is-open .ai-acc-body { display: block; }
+.forge-ai .ai-prompt {
+  position: absolute;
+  left: 36%;
+  bottom: 24px;
+  max-width: 40%;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+  padding: 8px 12px;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--s2a-font-family-body), adobe-clean, sans-serif;
+  font-size: 12px;
+  line-height: 1.3;
+  z-index: 2;
+}
+
+/* "More than an app" panel */
+.forge-ai .ai-more {
+  background: var(--ai-dark);
+  border-radius: 32px 32px 0 0;
+  margin-top: 40px;
+  padding: 80px 124px;
+  display: flex;
+  align-items: center;
+}
+.forge-ai .ai-more .section-inner {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.forge-ai .ai-more-title { color: #fff; max-width: 420px; flex: 0 1 420px; }
+.forge-ai .ai-more-right { position: relative; flex: 1 1 0; max-width: 640px; }
+.forge-ai .ai-more-list { list-style: none; margin: 0; padding: 0; counter-reset: more; }
+.forge-ai .ai-more-list li {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  counter-increment: more;
+}
+.forge-ai .ai-more-list li::before {
+  content: counter(more);
+  flex: none;
+  width: 18px;
+  font-family: var(--s2a-font-family-body), adobe-clean, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ai-on-dark-dim);
+}
+.forge-ai .ai-more-list li .txt {
+  font-family: var(--s2a-font-family-body), adobe-clean, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--ai-on-dark);
+}
+.forge-ai .ai-more-list li:first-child .txt { font-weight: 700; color: #fff; }
+.forge-ai .ai-card-float {
+  position: absolute;
+  top: -30px;
+  right: -10px;
+  display: block;
+  width: clamp(150px, 18vw, 200px);
+  aspect-ratio: 3 / 4;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+.forge-ai .ai-card-float img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Dark-scope link safety (C20) */
+.forge-ai .ai-panel a,
+.forge-ai .ai-more a { color: inherit; }
+
+/* Responsive */
+@media (max-width: 1023px) {
+  .forge-ai .ai-panel { min-height: 0; }
+  .forge-ai .ai-panel > picture { position: relative; width: 100%; height: auto; min-height: 320px; }
+  .forge-ai .ai-panel > picture > img { min-height: 320px; }
+  .forge-ai .ai-accordion {
+    position: static;
+    width: auto;
+    max-width: none;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 24px;
+  }
+  .forge-ai .ai-prompt { position: static; max-width: none; margin: 12px 24px 24px; display: inline-block; }
+  .forge-ai .ai-more { padding: 64px 40px; }
+  .forge-ai .ai-more .section-inner { flex-direction: column; align-items: flex-start; gap: 40px; }
+  .forge-ai .ai-more-title { flex: none; }
+  .forge-ai .ai-card-float { position: static; margin: 0 0 0 auto; }
+}
+@media (max-width: 767px) {
+  .forge-ai .ai-smart { padding: 80px 24px 0; }
+  .forge-ai .ai-title,
+  .forge-ai .ai-more-title { font-size: 36px; line-height: 38px; letter-spacing: -1px; }
+  .forge-ai .ai-more { padding: 48px 24px; }
+}

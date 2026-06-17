@@ -1,0 +1,202 @@
+/* forge-jtbd — capability "jobs-to-be-done" bento section.
+   Authored toward truth-target.css + the Figma frame: a centered head over a
+   3-row bento of capability cards (a blue feature card, plain media cards with
+   a caption below, a narrow tall card, and a full-bleed overlay card). Every
+   rule is scoped to .forge-jtbd and keys ONLY on the classes the decorator
+   stamps (.forge-jtbd-head/-grid/-row/-card/-media/-copy + card modifiers). */
+
+.forge-jtbd {
+  --jtbd-feature-bg: #0d1a52;
+  --jtbd-gap: 8px;
+  background: var(--s2a-color-background-default, #fff);
+  padding: var(--s2a-layout-section-top, 124px) 48px var(--s2a-layout-section-bottom, 80px);
+}
+
+.forge-jtbd img,
+.forge-jtbd picture {
+  display: block;
+  max-width: 100%;
+}
+
+/* Head ------------------------------------------------------------------ */
+.forge-jtbd .forge-jtbd-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--s2a-spacing-md, 16px);
+  max-width: 1344px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.forge-jtbd .forge-jtbd-eyebrow {
+  margin: 0;
+  color: var(--s2a-color-gray-700, #6e6e6e);
+  font-family: var(--s2a-font-family-body, "Adobe Clean"), sans-serif;
+  font-weight: 700;
+  font-size: var(--s2a-typography-font-size-eyebrow, 14px);
+  line-height: var(--s2a-typography-line-height-eyebrow, 18px);
+}
+
+.forge-jtbd .forge-jtbd-title {
+  margin: 0;
+  max-width: 760px;
+  color: var(--s2a-color-content-default, #000);
+  font-family: var(--s2a-font-family-heading, "Adobe Clean"), sans-serif;
+  font-weight: 900;
+  font-size: var(--s2a-typography-font-size-title-2, 44px);
+  line-height: var(--s2a-typography-line-height-title-2, 46px);
+  letter-spacing: var(--s2a-typography-letter-spacing-title-2, -1px);
+}
+
+.forge-jtbd .forge-jtbd-sub {
+  margin: 0;
+  max-width: 502px;
+  color: var(--s2a-color-content-body-strong, #222);
+  font-family: var(--s2a-font-family-body, "Adobe Clean"), sans-serif;
+  font-size: var(--s2a-typography-font-size-body-md, 18px);
+  line-height: var(--s2a-typography-line-height-body-md, 27px);
+}
+
+/* Grid ------------------------------------------------------------------ */
+.forge-jtbd .forge-jtbd-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--jtbd-gap);
+  max-width: 1344px;
+  margin: 48px auto 0;
+}
+
+.forge-jtbd .forge-jtbd-row {
+  display: flex;
+  gap: var(--jtbd-gap);
+}
+
+.forge-jtbd .forge-jtbd-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border-radius: 16px;
+}
+
+.forge-jtbd .forge-jtbd-card--feature { flex: 1.42 1 0; }
+.forge-jtbd .forge-jtbd-card--media { flex: 1 1 0; }
+.forge-jtbd .forge-jtbd-card--narrow { flex: 0.78 1 0; }
+.forge-jtbd .forge-jtbd-card--overlay { flex: 1.55 1 0; }
+
+/* Media + caption (default plain card) ---------------------------------- */
+.forge-jtbd .forge-jtbd-media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #0a0a0a;
+}
+
+.forge-jtbd .forge-jtbd-media picture {
+  width: 100%;
+  height: 100%;
+}
+
+.forge-jtbd .forge-jtbd-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.forge-jtbd .forge-jtbd-card--media .forge-jtbd-media { aspect-ratio: 1 / 1; }
+.forge-jtbd .forge-jtbd-card--narrow .forge-jtbd-media { aspect-ratio: 312 / 472; }
+
+.forge-jtbd .forge-jtbd-copy {
+  padding: 16px 4px 0;
+}
+
+.forge-jtbd .forge-jtbd-card-title {
+  margin: 0 0 8px;
+  color: var(--s2a-color-content-default, #000);
+  font-family: var(--s2a-font-family-heading, "Adobe Clean"), sans-serif;
+  font-weight: 900;
+  font-size: var(--s2a-typography-font-size-heading-6, 20px);
+  line-height: var(--s2a-typography-line-height-heading-6, 24px);
+  letter-spacing: var(--s2a-typography-letter-spacing-heading-6, 0);
+}
+
+.forge-jtbd .forge-jtbd-card-body {
+  margin: 0;
+  color: var(--s2a-color-content-body-subtle, #6e6e6e);
+  font-family: var(--s2a-font-family-body, "Adobe Clean"), sans-serif;
+  font-size: var(--s2a-typography-font-size-body-md, 18px);
+  line-height: var(--s2a-typography-line-height-body-md, 27px);
+}
+
+/* Feature card (blue, copy above the image) ----------------------------- */
+.forge-jtbd .forge-jtbd-card--feature {
+  background: var(--jtbd-feature-bg);
+  padding: 32px;
+  min-height: 730px;
+  color: #fff;
+}
+
+.forge-jtbd .forge-jtbd-card--feature .forge-jtbd-copy { padding: 0; }
+.forge-jtbd .forge-jtbd-card--feature .forge-jtbd-card-title { margin: 0 0 12px; color: #fff; }
+.forge-jtbd .forge-jtbd-card--feature .forge-jtbd-card-body { color: rgba(255, 255, 255, 0.86); max-width: 360px; }
+
+.forge-jtbd .forge-jtbd-card--feature .forge-jtbd-media {
+  margin-top: 24px;
+  flex: 1 1 auto;
+  min-height: 0;
+  border-radius: 8px;
+  background: transparent;
+}
+
+/* Overlay card (full-bleed image, copy laid over it) -------------------- */
+.forge-jtbd .forge-jtbd-card--overlay {
+  position: relative;
+  min-height: 530px;
+  overflow: hidden;
+}
+
+.forge-jtbd .forge-jtbd-card--overlay .forge-jtbd-media {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+}
+
+.forge-jtbd .forge-jtbd-card--overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(105deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.2) 45%, rgba(0, 0, 0, 0) 70%);
+}
+
+.forge-jtbd .forge-jtbd-card--overlay .forge-jtbd-copy {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+  z-index: 2;
+  max-width: 360px;
+  padding: 0;
+}
+
+.forge-jtbd .forge-jtbd-card--overlay .forge-jtbd-card-title { color: #fff; }
+.forge-jtbd .forge-jtbd-card--overlay .forge-jtbd-card-body { color: rgba(255, 255, 255, 0.88); }
+
+/* Links inside the dark cards must not inherit the global a{color:#000}. */
+.forge-jtbd .forge-jtbd-card--feature a,
+.forge-jtbd .forge-jtbd-card--overlay a { color: inherit; }
+
+/* Responsive ------------------------------------------------------------ */
+@media (max-width: 1023px) {
+  .forge-jtbd .forge-jtbd-row { flex-wrap: wrap; }
+  .forge-jtbd .forge-jtbd-card { flex: 1 1 45%; }
+}
+
+@media (max-width: 767px) {
+  .forge-jtbd { padding-left: 24px; padding-right: 24px; }
+  .forge-jtbd .forge-jtbd-row { flex-direction: column; }
+  .forge-jtbd .forge-jtbd-card { flex: 1 1 100%; }
+  .forge-jtbd .forge-jtbd-card--feature,
+  .forge-jtbd .forge-jtbd-card--overlay { min-height: auto; }
+  .forge-jtbd .forge-jtbd-title { font-size: 36px; line-height: 38px; letter-spacing: -1px; }
+}
