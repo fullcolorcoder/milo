@@ -5,12 +5,15 @@
  * bordered/rounded card: image on top, heading + body caption below).
  *
  * DA strips authored classes and serializes the block as a FLAT, class-less run
- * of <p>/<h2>/<picture>/<h3>/<p> in document order — there is NO grid/row/tile
+ * of text/p/h2/img/h3/p in document order — there is NO grid/row/tile
  * wrapper at runtime. So init() PROBES the flat content by shape (never by an
  * authored class or positional index) and RECONSTRUCTS the rich layout with
  * createElement + classList.add, stamping its own .forge-trust-scoped hooks that
- * the co-located forge-trust.css keys on. Nodes (especially <picture>) are
+ * the co-located forge-trust.css keys on. Nodes (especially <img>/<picture>) are
  * MOVED, not cloned, so loading/srcset/sizes survive intact.
+ *
+ * DA serializes images as bare <img> elements (not <picture>), and short label
+ * text as bare text nodes (not <p>). Both cases are handled before probing.
  *
  * @param {HTMLElement} el  The block element Milo passes to every C2 decorator.
  * @returns {Promise<void>}
@@ -20,6 +23,43 @@
 import { decorateBlockText, decorateViewportContent } from '../../../utils/decorate.js';
 
 const BLOCK = 'forge-trust';
+
+// Returns true when a node is (or directly wraps) a tile media element.
+// DA serialises images as bare <img>; EDS wraps them in <picture>; both are
+// treated as media anchors. A <p> wrapping only an <img>/<picture> is also a
+// media anchor (EDS sometimes adds the wrapper).
+function isTileMedia(node) {
+  if (node.matches('picture, img')) return true;
+  if (node.matches('p')) {
+    const media = node.querySelector('picture, img');
+    return !!(media && node.children.length === 1 && node.children[0] === media);
+  }
+  return false;
+}
+
+// Extract the media element from a bare <img>, bare <picture>, or <p> wrapper.
+function getTileMedia(node) {
+  if (node.matches('picture, img')) return node;
+  return node.querySelector('picture, img') || node;
+}
+
+// DA sometimes serialises short label text (like the eyebrow) as a bare text
+// node instead of a <p> element. Normalise these into <p> wrappers BEFORE the
+// shape-based probe runs so eyebrow detection works uniformly.
+function normalizeTextNodes(root) {
+  // Content lives inside the innermost EDS wrapper: el > div > div
+  const inner = root.querySelector(':scope > div > div')
+    || root.querySelector(':scope > div')
+    || root;
+  for (const node of [...inner.childNodes]) {
+    if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+      const p = document.createElement('p');
+      p.textContent = node.textContent.trim();
+      inner.insertBefore(p, node);
+      inner.removeChild(node);
+    }
+  }
+}
 
 // MEP / personalization markers Milo stamps on the row/cell wrapper. We rebuild
 // the section, so copy any present marker up onto the block root FIRST
@@ -48,7 +88,9 @@ function buildTile(tile) {
   const article = createTag('article', 'trust-tile');
 
   const imgWrap = createTag('div', 'trust-tile-img');
-  const img = tile.media.querySelector('img');
+  // For bare <img>: the media itself is the img element.
+  // For <picture>: querySelector('img') locates the inner <img>.
+  const img = tile.media.tagName === 'IMG' ? tile.media : tile.media.querySelector('img');
   if (img) img.setAttribute('daa-im', 'true');
   imgWrap.appendChild(tile.media);
   article.appendChild(imgWrap);
@@ -70,27 +112,41 @@ export default async function init(el) {
   // Section-level analytics handle (idiomatic Milo; daa-ll stays section-owned).
   el.setAttribute('daa-lh', BLOCK);
 
-  // Probe by content shape across the whole block in DOCUMENT ORDER, regardless
-  // of however many EDS row/cell <div>s wrap it.
-  const items = [...el.querySelectorAll('h1, h2, h3, h4, h5, h6, p, picture')];
+  // Step 1: normalise bare text nodes → <p> so eyebrow detection works.
+  normalizeTextNodes(el);
+
+  // Step 2: Probe by content shape across the whole block in DOCUMENT ORDER.
+  // Exclude <img> elements that live INSIDE a <picture> (handled by the <picture>)
+  // and bare <img> elements that live INSIDE a <p> (handled by the <p> wrapper)
+  // to avoid double-counting when EDS wraps images in paragraph nodes.
+  const items = [...el.querySelectorAll('h1, h2, h3, h4, h5, h6, p, picture, img')]
+    .filter((n) => {
+      if (n.matches('img') && n.closest('picture')) return false;
+      if (n.matches('img') && n.closest('p')) return false;
+      return true;
+    });
+
   const titleEl = items.find((n) => n.matches('h1, h2'));
   const titleIdx = titleEl ? items.indexOf(titleEl) : -1;
 
-  // Eyebrow = the first <p> that appears BEFORE the title (header kicker).
+  // Eyebrow = the first plain <p> (not a picture/img wrapper) before the title.
   const eyebrowEl = titleIdx > 0
-    ? items.slice(0, titleIdx).find((n) => n.matches('p'))
+    ? items.slice(0, titleIdx).find((n) => n.matches('p') && !isTileMedia(n))
     : null;
 
-  // Tiles = each <picture> anchors a tile; the heading + body that follow it
-  // (and before the next picture) belong to that tile.
+  // Tiles = each <img>/<picture> (or <p> wrapping one) anchors a tile; the
+  // heading and body text that follow (before the next media anchor) belong to
+  // that tile.
   const tiles = [];
   let current = null;
   for (const node of items) {
     if (node === titleEl || node === eyebrowEl) continue;
-    if (node.matches('picture')) {
-      current = { media: node, texts: [] };
+    if (isTileMedia(node)) {
+      current = { media: getTileMedia(node), texts: [] };
       tiles.push(current);
     } else if (current) {
+      // Skip empty <p> wrappers left behind after media extraction.
+      if (node.matches('p') && node.childElementCount === 1 && node.querySelector('picture, img')) continue;
       current.texts.push(node);
     }
   }

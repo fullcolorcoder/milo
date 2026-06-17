@@ -20,6 +20,7 @@
 
 /* Background photo fills the band; min-height reserves the box (no CLS). */
 .forge-rich-band .bg {
+  display: block; /* <picture> is inline by default; block needed for inset fill */
   position: absolute;
   inset: 0;
   width: 100%;
@@ -51,7 +52,8 @@
   margin: 0 auto;
 }
 
-/* Content anchored lower-left, headline at the bottom of the band. */
+/* Full-height flex column: rb-top (app-id + headline) at the top, any
+   authored jump-nav at the bottom via space-between. */
 .forge-rich-band .rb-inner {
   position: relative;
   min-height: 814px;
@@ -66,6 +68,13 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md, 16px);
+}
+
+/* Headline lives inside rb-top, directly below the app-id row. */
+.forge-rich-band .rb-top h1,
+.forge-rich-band .rb-top h2,
+.forge-rich-band .rb-top h3 {
+  margin: 0;
 }
 
 .forge-rich-band .app-id {

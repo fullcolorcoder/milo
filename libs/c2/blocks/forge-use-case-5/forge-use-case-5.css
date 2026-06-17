@@ -56,13 +56,38 @@
 }
 
 .forge-use-case-5 .bento-img {
+  /* Explicit width so aspect-ratio has a definite inline-size to derive height
+     from — avoids the flex-column + align-self:stretch + aspect-ratio edge case
+     that collapses the container when images are lazy-loading. flex-shrink:0
+     prevents the row from squeezing the image area. */
+  width: 100%;
+  flex-shrink: 0;
   aspect-ratio: 692 / 560;
   overflow: hidden;
   position: relative;
 }
 
-.forge-use-case-5 .bento-img picture,
-.forge-use-case-5 .bento-img img {
+/* Absolute fill — more robust than height:100% (which needs a "definite"
+   parent height) in flex-column contexts where lazy images haven't loaded. */
+.forge-use-case-5 .bento-img picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+/* Bare <img> tile anchor (DA may skip the <picture> wrapper) — same fill. */
+.forge-use-case-5 .bento-img > img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  vertical-align: top;
+}
+
+/* <img> inside a <picture> inside .bento-img */
+.forge-use-case-5 .bento-img picture img {
   display: block;
   width: 100%;
   height: 100%;

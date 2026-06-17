@@ -47,8 +47,9 @@ function buildTile(tile) {
   const article = createTag('article', 'bento');
 
   const imgWrap = createTag('div', 'bento-img');
-  const img = tile.media.querySelector('img');
-  if (img) img.setAttribute('daa-im', 'true');
+  // tile.media may be a <picture> or a bare <img> (DA serves both)
+  const imgEl = tile.media.tagName === 'IMG' ? tile.media : tile.media.querySelector('img');
+  if (imgEl) imgEl.setAttribute('daa-im', 'true');
   imgWrap.appendChild(tile.media);
   article.appendChild(imgWrap);
 
@@ -70,16 +71,20 @@ export default async function init(el) {
   el.setAttribute('daa-lh', BLOCK);
 
   // Probe by content shape across the whole block in DOCUMENT ORDER, regardless
-  // of however many EDS row/cell <div>s wrap it. <picture> is the tile anchor;
-  // the heading + body that follow it belong to that tile.
-  const items = [...el.querySelectorAll('h1, h2, h3, h4, h5, h6, p, picture')];
+  // of however many EDS row/cell <div>s wrap it. DA may emit either <picture> or
+  // bare <img> as the tile anchor; the heading + body that follow it belong to
+  // that tile. Exclude <img> children of <picture> to avoid double-counting.
+  const items = [...el.querySelectorAll('h1, h2, h3, h4, h5, h6, p, picture, img')].filter(
+    (n) => !(n.tagName === 'IMG' && n.parentElement?.tagName === 'PICTURE'),
+  );
   const titleEl = items.find((n) => n.matches('h1, h2'));
 
   const tiles = [];
   let current = null;
   for (const node of items) {
     if (node === titleEl) continue;
-    if (node.matches('picture')) {
+    if (node.matches('picture') || node.tagName === 'IMG') {
+      // Both <picture> and standalone <img> anchor a new tile.
       current = { media: node, texts: [] };
       tiles.push(current);
     } else if (current) {

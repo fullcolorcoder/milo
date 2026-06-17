@@ -2,8 +2,16 @@
    .forge-concierge (L10); tokens come from page-level globals, never :root here. */
 
 .forge-concierge {
+  /* Hard #000 first so the section is always dark even before CSS variables resolve. */
+  background-color: #000;
   background: var(--color-black, #000);
   color: var(--color-white, #fff);
+  /* Block-level boilerplate matching all other forge-* full-bleed sections. */
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  /* Vertical section rhythm: generous top + bottom breathing room to match Figma comp. */
+  padding: 120px 0 100px;
 }
 
 .forge-concierge img,
@@ -19,14 +27,13 @@
   position: relative;
 }
 
-/* Vertical section rhythm consistent with C2 siblings (~124px top / ~80px bottom),
-   not just Figma's horizontal padding. */
+/* Inner centering column: horizontal padding only (vertical lives on the block root). */
 .forge-concierge .inner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--s2a-spacing-24, 24px);
-  padding: var(--s2a-spacing-124, 124px) 120px var(--s2a-spacing-80, 80px);
+  gap: 48px;
+  padding: 0 120px;
 }
 
 /* Title */
@@ -37,19 +44,19 @@
   text-align: center;
   font-family: var(--font-display, "Adobe Clean Display", sans-serif);
   font-weight: 900;
-  font-size: 56px;
-  line-height: 56px;
-  letter-spacing: -1.68px;
+  font-size: 68px;
+  line-height: 72px;
+  letter-spacing: -2.04px;
 }
 
 /* Prompt column (input + chips) */
 .forge-concierge .prompt {
   width: 100%;
-  max-width: 768px;
+  max-width: 840px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--s2a-spacing-24, 24px);
+  gap: 16px;
 }
 
 /* Pill-shaped prompt input */
@@ -57,12 +64,13 @@
   width: 100%;
   display: flex;
   align-items: center;
-  gap: var(--s2a-spacing-16, 16px);
-  min-height: 56px;
-  padding: 12px 16px;
-  border-radius: 28px;
-  background: var(--color-transparent-white-12, rgba(255, 255, 255, .1));
-  border: 1.5px solid var(--concierge-input-border, #972ee3);
+  gap: 16px;
+  min-height: 68px;
+  padding: 16px 20px;
+  border-radius: 34px;
+  background: rgba(255, 255, 255, .06);
+  border: 1.5px solid var(--concierge-input-border, #8b2be2);
+  box-shadow: 0 0 0 3px rgba(139, 43, 226, .22), 0 0 32px rgba(139, 43, 226, .18);
 }
 
 .forge-concierge .p-input .ai {
@@ -106,31 +114,34 @@
   height: 32px;
 }
 
-/* Suggestion chips (2-up grid, centered) */
+/* Suggestion chips — 2-column grid to match the Figma 2×2 layout */
 .forge-concierge .chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--s2a-spacing-8, 8px);
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  width: 100%;
 }
 
 .forge-concierge .chip {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  padding: 12px 16px;
+  padding: 14px 18px;
   border-radius: 18px;
-  background: var(--color-transparent-white-12, rgba(255, 255, 255, .1));
-  border: 1.5px solid var(--color-transparent-white-16, rgba(255, 255, 255, .16));
-  color: var(--color-content-subtle, rgba(255, 255, 255, .7));
+  background: rgba(255, 255, 255, .08);
+  border: 1.5px solid rgba(255, 255, 255, .28);
+  color: rgba(255, 255, 255, .88);
   font-family: var(--font-text, "Adobe Clean", sans-serif);
   font-weight: 400;
   font-size: 14px;
-  line-height: 18px;
+  line-height: 20px;
   cursor: pointer;
+  text-align: left;
+  white-space: normal;
 }
 
 .forge-concierge .chip:hover {
-  background: var(--color-transparent-white-16, rgba(255, 255, 255, .16));
+  background: rgba(255, 255, 255, .16);
+  border-color: rgba(255, 255, 255, .4);
 }
 
 /* Legal disclaimer */
@@ -155,15 +166,28 @@
 
 @media (max-width: 1023px) {
   .forge-concierge .inner {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding: 0 40px;
+    gap: 40px;
   }
 }
 
 @media (max-width: 767px) {
+  .forge-concierge {
+    padding: 80px 0 60px;
+  }
+
+  .forge-concierge .inner {
+    padding: 0 24px;
+    gap: 32px;
+  }
+
   .forge-concierge .cc-title {
-    font-size: 38px;
-    line-height: 40px;
-    letter-spacing: -1.1px;
+    font-size: 40px;
+    line-height: 44px;
+    letter-spacing: -1.2px;
+  }
+
+  .forge-concierge .chips {
+    grid-template-columns: 1fr;
   }
 }

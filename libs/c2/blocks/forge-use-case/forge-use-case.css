@@ -63,19 +63,32 @@
   aspect-ratio: 692 / 560;
   overflow: hidden;
   position: relative;
+  /* explicit width so aspect-ratio always has a resolved dimension to work from */
+  width: 100%;
+  /* prevent flex-column shrink from stealing height below the ratio-computed value */
+  flex-shrink: 0;
 }
 
 .forge-use-case .bento-full .bento-img {
   aspect-ratio: 1408 / 560;
 }
 
-.forge-use-case .bento-img picture,
+/* Use absolute inset fill so height:100% on img resolves against an explicitly-
+   sized ancestor (the absolutely-positioned picture) instead of the aspect-ratio
+   parent, which some browser/flex combinations don't resolve reliably. */
+.forge-use-case .bento-img picture {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .forge-use-case .bento-img img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  vertical-align: top;
 }
 
 .forge-use-case .bento-cap {

@@ -8,9 +8,8 @@
 
 .forge-use-case-6 {
   background: var(--color-black, #000);
-  /* Section rhythm consistent with C2 siblings — vertical padding, not just
-     Figma's horizontal padding. */
-  padding: var(--layout-lg, 124px) 0 var(--layout-sm, 80px);
+  /* Section rhythm consistent with C2 siblings — vertical padding. */
+  padding: 80px 0;
 }
 
 .forge-use-case-6 .section-inner {
@@ -19,7 +18,7 @@
   padding: 0 124px;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-2xl, 40px);
+  gap: 32px;
 }
 
 .forge-use-case-6 .uc-title {
@@ -36,12 +35,12 @@
 .forge-use-case-6 .uc-grid {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xs, 8px);
+  gap: 12px;
 }
 
 .forge-use-case-6 .uc-row {
   display: flex;
-  gap: var(--spacing-xs, 8px);
+  gap: 12px;
 }
 
 .forge-use-case-6 .bento {
@@ -49,8 +48,8 @@
   min-width: 280px;
   display: flex;
   flex-direction: column;
-  background: var(--card-dark, #0c0c0c);
-  border: 2px solid var(--card-border, rgba(255, 255, 255, .1));
+  background: var(--card-dark, #141414);
+  border: 1.5px solid var(--card-border, rgba(255, 255, 255, .14));
   border-radius: var(--radius-md, 16px);
   overflow: hidden;
 }
@@ -60,29 +59,43 @@
 }
 
 .forge-use-case-6 .bento-img {
-  aspect-ratio: 692 / 560;
+  /* width:100% + aspect-ratio gives a definite height; flex-shrink:0 keeps
+     the image area from being squeezed by the flex-column layout. */
+  width: 100%;
+  flex-shrink: 0;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   position: relative;
 }
 
 .forge-use-case-6 .bento-full .bento-img {
-  aspect-ratio: 1408 / 560;
+  aspect-ratio: 5 / 2;
 }
 
-.forge-use-case-6 .bento-img picture,
+/* Fill the reserved container — explicit dimensions on both picture and img
+   ensure the browser doesn't need to infer sizes from the aspect-ratio box. */
+.forge-use-case-6 .bento-img picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .forge-use-case-6 .bento-img img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
   vertical-align: top;
 }
 
 .forge-use-case-6 .bento-cap {
-  padding: 48px;
+  padding: 24px 32px 32px;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-2xs, 4px);
+  gap: 8px;
 }
 
 /* Screen-reader-only caption (the full-width media tile carries copy visually). */
@@ -104,9 +117,9 @@
   color: var(--color-white, #fff);
   font-family: var(--font-display, "Adobe Clean Display", sans-serif);
   font-weight: 900;
-  font-size: 18px;
-  line-height: 1;
-  letter-spacing: -.2px;
+  font-size: 20px;
+  line-height: 1.1;
+  letter-spacing: -.3px;
 }
 
 .forge-use-case-6 .bento-cap .bento-body {
@@ -136,7 +149,7 @@
 
 @media (max-width: 767px) {
   .forge-use-case-6 {
-    padding: var(--layout-sm, 80px) 0 var(--spacing-3xl, 48px);
+    padding: 56px 0 40px;
   }
 
   .forge-use-case-6 .uc-title {
@@ -146,6 +159,6 @@
   }
 
   .forge-use-case-6 .bento-cap {
-    padding: 32px;
+    padding: 20px 24px 24px;
   }
 }

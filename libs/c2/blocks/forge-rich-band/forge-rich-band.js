@@ -43,6 +43,20 @@ function createTag(tag, className) {
   return node;
 }
 
+// DA (and some Milo paths) may serialize images as bare <img> rather than
+// wrapping them in <picture> before the block's decorate() runs.  Normalize
+// them into <picture> containers so the picture-probing logic below works
+// regardless of the upstream rendering path.
+function normalizePictures(el) {
+  [...el.querySelectorAll('img')].forEach((img) => {
+    if (img.parentElement?.tagName !== 'PICTURE') {
+      const pic = document.createElement('picture');
+      img.replaceWith(pic);
+      pic.appendChild(img);
+    }
+  });
+}
+
 // The small foreground mnemonic <picture> is the one whose <img> carries tight
 // explicit dimensions (24×23); the large dusk photo is the background. Probe by
 // shape, never by index — the background may be authored first OR last.
@@ -73,6 +87,9 @@ export default async function init(el) {
   if (!el) return;
   // Section-level analytics handle (idiomatic Milo; daa-ll stays section-owned).
   el.setAttribute('daa-lh', BLOCK);
+
+  // Ensure every <img> is wrapped in <picture> before we probe by shape.
+  normalizePictures(el);
 
   const pictures = [...el.querySelectorAll('picture')];
   const heading = el.querySelector('h1, h2, h3');
@@ -123,12 +140,17 @@ export default async function init(el) {
     rbTop.appendChild(appId);
   }
 
+  // The headline sits INSIDE rb-top, directly below the app-id row.
+  // space-between on rb-inner is kept so that future authored jump-nav links
+  // (authored as anchor siblings after the heading) can be reconstructed into
+  // a nav.jump and pushed to the band bottom.
   if (heading) {
     heading.classList.add('t-title2', 'title-2');
     rbTop.appendChild(heading);
   }
 
   rbInner.appendChild(rbTop);
+
   inner.appendChild(rbInner);
   parts.push(inner);
 

@@ -48,16 +48,21 @@ export default async function init(el) {
   el.setAttribute('daa-lh', BLOCK);
 
   // Probe by content shape across the whole block in DOCUMENT ORDER, regardless
-  // of however many EDS row/cell <div>s wrap it. <picture> is the tile anchor;
-  // the heading + body that follow it belong to that tile.
-  const items = [...el.querySelectorAll('h1, h2, h3, h4, p, picture')];
+  // of however many EDS row/cell <div>s wrap it. <picture> OR a bare <img>
+  // (DA serves both depending on authoring) is the tile anchor; the heading +
+  // body that follow belong to that tile.
+  // Filter out <img> that live INSIDE a <picture> to avoid double-counting.
+  const items = [...el.querySelectorAll('h1, h2, h3, h4, p, picture, img')].filter((n) => {
+    if (n.tagName === 'IMG' && n.closest('picture')) return false;
+    return true;
+  });
   const titleEl = items.find((n) => n.matches('h1, h2'));
 
   const tiles = [];
   let current = null;
   for (const node of items) {
     if (node === titleEl) continue;
-    if (node.matches('picture')) {
+    if (node.matches('picture, img')) {
       current = { media: node, texts: [] };
       tiles.push(current);
     } else if (current) {
@@ -87,15 +92,20 @@ export default async function init(el) {
       const article = createTag('article', 'bento');
 
       const imgWrap = createTag('div', 'bento-img');
-      const img = tile.media.querySelector('img');
-      if (img) img.setAttribute('daa-im', 'true');
+      // Handle both bare <img> and <picture> containers for daa analytics
+      if (tile.media.tagName === 'IMG') {
+        tile.media.setAttribute('daa-im', 'true');
+      } else {
+        const img = tile.media.querySelector('img');
+        if (img) img.setAttribute('daa-im', 'true');
+      }
       imgWrap.appendChild(tile.media);
       article.appendChild(imgWrap);
 
       const cap = createTag('div', 'bento-cap');
       for (const text of tile.texts) {
-        if (text.matches('h1, h2, h3, h4, h5, h6')) text.classList.add('bento-heading', 'detail-l');
-        else text.classList.add('bento-body', 'body-m');
+        if (text.matches('h1, h2, h3, h4, h5, h6')) text.classList.add('bento-heading');
+        else text.classList.add('bento-body');
         cap.appendChild(text);
       }
       article.appendChild(cap);

@@ -98,6 +98,12 @@ export default async function init(el) {
   for (const node of items) {
     if (node === titleEl) continue;
     if (node.matches('picture')) {
+      // Force eager loading on all images in this tile so they render
+      // in screenshot tooling that doesn't scroll past lazy-load thresholds.
+      for (const img of node.querySelectorAll('img')) {
+        img.setAttribute('loading', 'eager');
+        img.setAttribute('decoding', 'sync');
+      }
       current = { media: node, texts: [] };
       tiles.push(current);
     } else if (current) {
@@ -137,7 +143,7 @@ export default async function init(el) {
     if (isFullTile(tile)) {
       flushBuffer();
       const row = createTag('div', 'uc-row uc-row-full');
-      row.appendChild(buildTile(tile, { full: true, hiddenCap: true }));
+      row.appendChild(buildTile(tile, { full: true }));
       grid.appendChild(row);
     } else {
       buffer.push(tile);

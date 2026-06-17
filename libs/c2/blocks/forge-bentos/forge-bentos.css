@@ -9,16 +9,16 @@
   background: var(--color-black, #000);
   /* Section rhythm consistent with C2 siblings — vertical padding, not just
      Figma's horizontal padding. */
-  padding: var(--layout-lg, 124px) 0 var(--layout-sm, 80px);
+  padding: 80px 0 80px;
 }
 
 .forge-bentos .section-inner {
-  max-width: 1440px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-2xl, 40px);
+  gap: 48px;
   align-items: center;
 }
 
@@ -28,42 +28,55 @@
   text-align: center;
   font-family: var(--font-display, "Adobe Clean Display", sans-serif);
   font-weight: 900;
-  font-size: 56px;
-  line-height: 1;
-  letter-spacing: -1.68px;
+  font-size: 48px;
+  line-height: 1.05;
+  letter-spacing: -1.44px;
 }
 
 .forge-bentos .bento-grid {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xs, 8px);
+  gap: 12px;
   width: 100%;
 }
 
 .forge-bentos .bento-row {
   display: flex;
-  gap: var(--spacing-xs, 8px);
+  width: 100%;
+  gap: 12px;
 }
 
 .forge-bentos .bento {
   flex: 1 1 0;
-  min-width: 280px;
+  min-width: 0;
   display: flex;
   flex-direction: column;
-  background: var(--card-dark, #0c0c0c);
-  border: 2px solid var(--card-border, rgba(255, 255, 255, .1));
+  background: var(--card-dark, #1a1a1a);
+  border: 1px solid var(--card-border, rgba(255, 255, 255, .12));
   border-radius: var(--radius-md, 16px);
   overflow: hidden;
 }
 
+/* The image container uses aspect-ratio as primary sizing and min-height as a
+   robust fallback for lazy images that haven't loaded yet (0 intrinsic size). */
 .forge-bentos .bento-img {
-  aspect-ratio: 692 / 560;
+  aspect-ratio: 16 / 9;
+  min-height: 280px;
   overflow: hidden;
   position: relative;
+  flex-shrink: 0;
 }
 
-.forge-bentos .bento-img picture,
-.forge-bentos .bento-img img {
+/* Absolute fill so the picture/img fills the container regardless of whether
+   the browser resolves percentage height from the aspect-ratio box. */
+.forge-bentos .bento-img picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.forge-bentos .bento-img picture img,
+.forge-bentos .bento-img > img {
   display: block;
   width: 100%;
   height: 100%;
@@ -72,31 +85,35 @@
 }
 
 .forge-bentos .bento-cap {
-  padding: 48px;
+  padding: 32px 36px 36px;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-2xs, 4px);
+  gap: 12px;
+  flex: 1;
 }
 
-.forge-bentos .bento-cap .bento-heading {
+/* bento-heading is set by init(); decorateBlockText may also add title-* —
+   both can coexist since we use classList.add not assignment. */
+.forge-bentos .bento-cap .bento-heading,
+.forge-bentos .bento-cap h3,
+.forge-bentos .bento-cap h4 {
   margin: 0;
-  max-width: 450px;
   color: var(--color-white, #fff);
   font-family: var(--font-display, "Adobe Clean Display", sans-serif);
-  font-weight: 900;
-  font-size: 18px;
-  line-height: 1;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.25;
   letter-spacing: -.2px;
 }
 
-.forge-bentos .bento-cap .bento-body {
+.forge-bentos .bento-cap .bento-body,
+.forge-bentos .bento-cap p {
   margin: 0;
-  max-width: 450px;
-  color: var(--color-content-body-subtle, rgba(255, 255, 255, .64));
+  color: var(--color-content-body-subtle, rgba(255, 255, 255, .7));
   font-family: var(--font-text, "Adobe Clean", sans-serif);
   font-weight: 400;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 15px;
+  line-height: 1.5;
 }
 
 /* Links inside the dark section must not inherit the global near-black. */
@@ -112,16 +129,20 @@
 
 @media (max-width: 767px) {
   .forge-bentos {
-    padding: var(--layout-sm, 80px) 0 var(--spacing-3xl, 48px);
+    padding: 60px 0;
   }
 
   .forge-bentos .title {
-    font-size: 38px;
-    line-height: 40px;
-    letter-spacing: -1.1px;
+    font-size: 34px;
+    line-height: 1.1;
+    letter-spacing: -1px;
+  }
+
+  .forge-bentos .bento-img {
+    min-height: 200px;
   }
 
   .forge-bentos .bento-cap {
-    padding: 32px;
+    padding: 24px;
   }
 }
