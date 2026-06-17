@@ -1,0 +1,142 @@
+/* forge-jumplink — full-bleed dark hero banner.
+   Every selector is scoped to .forge-jumplink (lint L10). Tokens live inside the
+   block scope, never in :root (lint L19). CSS keys ONLY on the classes the
+   decorator stamps on the reconstructed DOM (.jumplink-bg / .jumplink-scrim /
+   .section-inner / .jumplink-content / .app-id / .t-eyebrow / .t-title2). */
+
+.forge-jumplink {
+  --jumplink-ink: var(--s2a-color-text-inverse, #fff);
+  --jumplink-maxw: 1440px;
+  --jumplink-content-maxw: 656px;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  min-height: 720px;
+  /* Vertical section rhythm consistent with C2 siblings + Figma side padding. */
+  padding: var(--s2a-layout-section-top, 124px) var(--s2a-layout-lg, 24px)
+    var(--s2a-layout-section-bottom, 80px);
+  overflow: hidden;
+  background-color: #000;
+  color: var(--jumplink-ink);
+}
+
+/* Normalize the media the decorator moves in. */
+.forge-jumplink img,
+.forge-jumplink picture,
+.forge-jumplink svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Background photo — absolutely fills the banner behind the scrim + content. */
+.forge-jumplink .jumplink-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.forge-jumplink .jumplink-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Gradient scrim — darkens top + bottom so white type stays legible. */
+.forge-jumplink .jumplink-scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0) 39.45%,
+    rgba(0, 0, 0, 0) 74.49%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+
+.forge-jumplink .section-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--jumplink-maxw);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.forge-jumplink .jumplink-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2a-spacing-16, 16px);
+  padding: 0 16px;
+  max-width: var(--jumplink-content-maxw);
+}
+
+/* Eyebrow row: app-mnemonic icon + label. */
+.forge-jumplink .app-id {
+  display: flex;
+  align-items: center;
+  gap: var(--s2a-spacing-8, 8px);
+}
+
+.forge-jumplink .app-id-icon {
+  flex: 0 0 auto;
+  width: 24px;
+  height: auto;
+}
+
+.forge-jumplink .app-id-icon img {
+  width: 24px;
+  height: auto;
+}
+
+.forge-jumplink .t-eyebrow {
+  margin: 0;
+  font-family: var(--s2a-font-body, var(--font-body, adobe-clean, sans-serif));
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+}
+
+.forge-jumplink .t-title2 {
+  margin: 0;
+  font-family: var(--s2a-font-heading, var(--font-heading, adobe-clean, sans-serif));
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 56px;
+  letter-spacing: -1.68px;
+}
+
+/* Explicit readable ink over the dark photo (never inherit the global a{}). */
+.forge-jumplink .ink-white,
+.forge-jumplink .ink-white a {
+  color: var(--jumplink-ink);
+}
+
+@media (max-width: 1023px) {
+  .forge-jumplink {
+    min-height: 480px;
+    padding: 96px 24px 64px;
+  }
+}
+
+@media (max-width: 767px) {
+  .forge-jumplink {
+    min-height: 420px;
+  }
+
+  .forge-jumplink .t-title2 {
+    font-size: 38px;
+    line-height: 40px;
+    letter-spacing: -1px;
+  }
+}

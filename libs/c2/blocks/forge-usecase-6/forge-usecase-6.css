@@ -1,0 +1,199 @@
+/* forge-usecase-6 — use-case bento grid with a wide feature tile. Authored toward
+   the Figma visual target (truth-target.css + screenshot), keyed ONLY on the
+   classes init() stamps on the reconstructed DOM. Dark full-width section; light
+   bento tiles; the wide tile carries an overlaid white copy block. */
+
+.forge-usecase-6 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 124px 124px 80px;
+  background: var(--s2a-color-background-dark, #000);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.forge-usecase-6 img,
+.forge-usecase-6 picture,
+.forge-usecase-6 svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.forge-usecase-6 .section-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Typography */
+.forge-usecase-6 .t-title3 {
+  font-family: var(--font-heading, 'Adobe Clean', sans-serif);
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 48px;
+  letter-spacing: -1.44px;
+  margin: 0;
+}
+
+.forge-usecase-6 .t-h6 {
+  font-family: var(--font-heading, 'Adobe Clean', sans-serif);
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 18px;
+  letter-spacing: -0.2px;
+  margin: 0;
+}
+
+.forge-usecase-6 .t-body-md {
+  font-family: var(--font-body, 'Adobe Clean', sans-serif);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  margin: 0;
+}
+
+.forge-usecase-6 .ink-white { color: var(--white, #fff); }
+.forge-usecase-6 .ink-dark { color: #000; }
+.forge-usecase-6 .ink-dark-subtle { color: var(--s2a-color-content-body-subtle-dark, #5c5c5c); }
+
+.forge-usecase-6 .usecase-title {
+  width: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+/* Grid */
+.forge-usecase-6 .usecase-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.forge-usecase-6 .bento-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.forge-usecase-6 .bento {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bento-light, #f0f0f0);
+  border: 2px solid var(--s2a-color-transparent-white-10, rgba(255, 255, 255, 0.1));
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.forge-usecase-6 .bento--wide {
+  flex: 1 1 100%;
+}
+
+.forge-usecase-6 .bento-img {
+  aspect-ratio: 692 / 560;
+  width: 100%;
+  overflow: hidden;
+}
+
+.forge-usecase-6 .bento--wide .bento-img {
+  aspect-ratio: 1392 / 560;
+}
+
+.forge-usecase-6 .bento-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.forge-usecase-6 .bento--wide .bento-img img {
+  object-position: center;
+}
+
+/* Standard tile: copy stacked below the media on the light card. */
+.forge-usecase-6 .bento-type {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 48px;
+}
+
+/* Wide feature tile: copy overlaid on the media with a bottom gradient scrim. */
+.forge-usecase-6 .bento-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 48px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 60%);
+}
+
+.forge-usecase-6 .bento-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 450px;
+}
+
+/* Brand badge (Firefly / Photoshop svg icon) pinned to the tile corner. */
+.forge-usecase-6 .bento-badge {
+  position: absolute;
+  left: 48px;
+  top: 48px;
+  width: 32px;
+  height: 32px;
+  z-index: 2;
+}
+
+.forge-usecase-6 .bento-badge img,
+.forge-usecase-6 .bento-badge picture {
+  width: 100%;
+  height: 100%;
+}
+
+/* Links inside the dark section keep readable colour (never inherit a:#000). */
+.forge-usecase-6 a { color: inherit; }
+
+@media (max-width: 1023px) {
+  .forge-usecase-6 {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .forge-usecase-6 .bento-row { flex-wrap: wrap; }
+  .forge-usecase-6 .bento-badge { left: 32px; top: 32px; }
+  .forge-usecase-6 .bento-type,
+  .forge-usecase-6 .bento-overlay { padding: 32px; }
+}
+
+@media (max-width: 767px) {
+  .forge-usecase-6 {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .forge-usecase-6 .t-title3 {
+    font-size: 34px;
+    line-height: 36px;
+    letter-spacing: -1px;
+  }
+
+  .forge-usecase-6 .bento-row { flex-direction: column; }
+  .forge-usecase-6 .bento-type,
+  .forge-usecase-6 .bento-overlay { padding: 24px; }
+}

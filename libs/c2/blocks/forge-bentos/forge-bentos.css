@@ -1,0 +1,136 @@
+/* forge-bentos — dark, rounded-bottom bento band with a centred title and a grid
+   of light tiles (image-top, copy-bottom). All selectors are scoped to
+   .forge-bentos and key only on the classes the decorator stamps at runtime. */
+
+.forge-bentos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--s2a-spacing-40, 40px);
+  /* C21: full C2 vertical section rhythm, not just Figma side padding. */
+  padding: var(--s2a-layout-section-top, 124px) var(--s2a-spacing-24, 24px) var(--s2a-spacing-24, 24px);
+  background: var(--color-global-black, #000);
+  border-radius: 0 0 32px 32px;
+}
+
+.forge-bentos img,
+.forge-bentos picture {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Typography — keyed on the classes init() stamps. */
+.forge-bentos .t-title2 {
+  font-family: var(--font-heading, var(--body-font-family));
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 56px;
+  letter-spacing: -1.68px;
+  margin: 0;
+}
+
+.forge-bentos .t-h6 {
+  font-family: var(--font-heading, var(--body-font-family));
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 18px;
+  letter-spacing: -0.2px;
+  margin: 0;
+}
+
+.forge-bentos .t-body-md {
+  font-family: var(--font-body, var(--body-font-family));
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.forge-bentos .ink-white { color: var(--white, #fff); }
+.forge-bentos .ink-dark { color: var(--s2a-color-content-heading-light, #000); }
+.forge-bentos .ink-dark-subtle { color: var(--s2a-color-content-body-subtle-dark, #4b4b4b); }
+
+.forge-bentos .bentos-title {
+  text-align: center;
+  max-width: 1440px;
+}
+
+/* Grid: a stack of rows; each row is a flex pair that reflows on narrow widths. */
+.forge-bentos .bento-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 1392px;
+}
+
+.forge-bentos .bento-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.forge-bentos .bento {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bento-light, #f5f5f5);
+  border: 2px solid var(--s2a-color-transparent-white-10, rgb(255 255 255 / 10%));
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Media reserves its box up front (C19) so the tile fills its share of height. */
+.forge-bentos .bento-img {
+  aspect-ratio: 692 / 560;
+  width: 100%;
+  overflow: hidden;
+}
+
+.forge-bentos .bento-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.forge-bentos .bento-type {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex: 1 1 auto;
+  gap: 16px;
+  padding: 48px;
+}
+
+.forge-bentos .bento-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 450px;
+}
+
+@media (max-width: 1023px) {
+  .forge-bentos .bento-row { flex-wrap: wrap; }
+}
+
+@media (max-width: 767px) {
+  .forge-bentos {
+    padding: 80px 16px 16px;
+    gap: 24px;
+  }
+
+  .forge-bentos .t-title2 {
+    font-size: 38px;
+    line-height: 40px;
+    letter-spacing: -1px;
+  }
+
+  .forge-bentos .bento-row { flex-direction: column; }
+
+  .forge-bentos .bento-type { padding: 28px; }
+}

@@ -1,0 +1,3 @@
+.modal.forge-loose img, .modal.forge-loose video, .modal.forge-loose svg, .modal.forge-loose picture {max-width:100%;height:auto;display:block}
+
+.modal.forge-loose main {width:100%;overflow-x:hidden}

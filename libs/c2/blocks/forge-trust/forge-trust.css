@@ -1,0 +1,149 @@
+/* forge-trust — dark, full-width trust band: an eyebrow + title head over a
+   3-up grid of image tiles (cover photo on top, heading + body beneath). All
+   selectors are scoped to .forge-trust and key only on the classes the
+   decorator stamps at runtime (DA strips the authored Figma classes). */
+
+.forge-trust {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  /* C21: full C2 vertical section rhythm, not just Figma side padding. */
+  padding: var(--s2a-layout-section-top, 124px) 124px var(--s2a-layout-section-bottom, 80px);
+  background: var(--color-global-black, #000);
+  color: var(--white, #fff);
+}
+
+.forge-trust img,
+.forge-trust picture {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.forge-trust a {
+  /* C20: never inherit the global near-black link colour on this dark band. */
+  color: inherit;
+}
+
+.forge-trust .section-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Head ---------------------------------------------------------------- */
+.forge-trust .trust-head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.forge-trust .t-eyebrow {
+  font-family: var(--font-body, "Adobe Clean", sans-serif);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.forge-trust .t-title2 {
+  font-family: var(--font-heading, "Adobe Clean Display", sans-serif);
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 56px;
+  letter-spacing: -1.68px;
+  margin: 0;
+}
+
+.forge-trust .t-h6 {
+  font-family: var(--font-heading, "Adobe Clean Display", sans-serif);
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 18px;
+  letter-spacing: -0.2px;
+  margin: 0;
+}
+
+.forge-trust .t-body-md {
+  font-family: var(--font-body, "Adobe Clean", sans-serif);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.forge-trust .ink-white {
+  color: var(--white, #fff);
+}
+
+.forge-trust .ink-subtle {
+  color: var(--s2a-color-content-subtle, rgba(255, 255, 255, 0.64));
+}
+
+/* Tile grid ----------------------------------------------------------- */
+.forge-trust .trust-grid {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.forge-trust .etile {
+  flex: 1 1 0;
+  min-width: 234px;
+  display: flex;
+  flex-direction: column;
+}
+
+.forge-trust .etile-img {
+  aspect-ratio: 596 / 447;
+  background: var(--color-bento-light, #f6f6f6);
+  border: 2px solid var(--s2a-color-transparent-white-10, rgba(255, 255, 255, 0.1));
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.forge-trust .etile-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.forge-trust .etile-type {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 16px 0;
+}
+
+/* Responsive ---------------------------------------------------------- */
+@media (max-width: 1023px) {
+  .forge-trust {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .forge-trust {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .forge-trust .t-title2 {
+    font-size: 38px;
+    line-height: 40px;
+    letter-spacing: -1px;
+  }
+
+  .forge-trust .trust-grid {
+    flex-direction: column;
+  }
+}

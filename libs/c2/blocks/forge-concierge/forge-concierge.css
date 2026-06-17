@@ -1,0 +1,197 @@
+/* forge-concierge — dark, full-width, centred AI concierge band: a title over a
+   rounded prompt-input pill (leading AI icon + "Ask anything" placeholder +
+   trailing send control), a wrap of suggestion chips, and a fine-print legal
+   line. All selectors are scoped to .forge-concierge and key only on the classes
+   the decorator stamps at runtime (DA strips the authored Figma classes). */
+
+.forge-concierge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* C21: full C2 vertical section rhythm, not just Figma side padding. */
+  padding: var(--s2a-layout-section-top, 124px) 120px var(--s2a-layout-section-bottom, 80px);
+  background: var(--color-global-black, #000);
+  color: var(--white, #fff);
+}
+
+.forge-concierge img,
+.forge-concierge picture,
+.forge-concierge svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.forge-concierge .section-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Typography ---------------------------------------------------------- */
+.forge-concierge .t-title2 {
+  font-family: var(--font-heading, "Adobe Clean Display", sans-serif);
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 56px;
+  letter-spacing: -1.68px;
+  margin: 0;
+}
+
+.forge-concierge .t-body-md {
+  font-family: var(--font-body, "Adobe Clean", sans-serif);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.forge-concierge .t-body-sm {
+  font-family: var(--font-body, "Adobe Clean", sans-serif);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.forge-concierge .t-body-xs {
+  font-family: var(--font-body, "Adobe Clean", sans-serif);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0;
+  margin: 0;
+}
+
+.forge-concierge .ink-white {
+  color: var(--white, #fff);
+}
+
+.forge-concierge .ink-subtle {
+  color: var(--s2a-color-content-subtle, rgba(255, 255, 255, 0.64));
+}
+
+.forge-concierge .concierge-title {
+  text-align: center;
+  width: 100%;
+}
+
+/* Prompt pill --------------------------------------------------------- */
+.forge-concierge .concierge-prompt {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  width: 100%;
+  max-width: 768px;
+}
+
+.forge-concierge .prompt-input {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 56px;
+  padding: 12px;
+  width: 100%;
+  border-radius: 28px;
+  background: var(--s2a-color-transparent-white-10, rgba(255, 255, 255, 0.1));
+  border: 1px solid var(--concierge-purple, #972ee3);
+}
+
+.forge-concierge .prompt-input .pi-left {
+  flex: 1 1 0;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  min-width: 0;
+}
+
+.forge-concierge .prompt-ico {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.forge-concierge .prompt-ico img {
+  width: 24px;
+  height: 24px;
+}
+
+.forge-concierge .prompt-send {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+.forge-concierge .prompt-send img {
+  width: 32px;
+  height: 32px;
+}
+
+/* Suggestion chips ---------------------------------------------------- */
+.forge-concierge .concierge-sugs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  width: 100%;
+}
+
+.forge-concierge .sug {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border-radius: 18px;
+  background: var(--s2a-color-transparent-white-10, rgba(255, 255, 255, 0.1));
+  border: 1.5px solid var(--concierge-red, #e11d1a);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Legal fine print ---------------------------------------------------- */
+.forge-concierge .concierge-legal {
+  text-align: center;
+  width: 100%;
+  color: var(--s2a-color-content-subtle, rgba(255, 255, 255, 0.64));
+}
+
+.forge-concierge .concierge-legal a {
+  /* C20: never inherit the global near-black link colour on this dark band. */
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* Responsive ---------------------------------------------------------- */
+@media (max-width: 1023px) {
+  .forge-concierge {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .forge-concierge {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .forge-concierge .t-title2 {
+    font-size: 38px;
+    line-height: 40px;
+    letter-spacing: -1px;
+  }
+}

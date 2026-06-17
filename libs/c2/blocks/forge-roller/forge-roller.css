@@ -1,0 +1,204 @@
+/* forge-roller — dark full-width "app roller" section.
+   Authored toward the Figma target (truth-target.css + the reference frame) but
+   keyed ONLY on the classes init() stamps on the reconstructed DOM. Every rule is
+   scoped under .forge-roller (L10/L19); no :root / body / @font-face / @import. */
+
+.forge-roller {
+  position: relative;
+  overflow: hidden;
+  /* Section rhythm consistent with C2 siblings (top) + figma side padding. */
+  padding: var(--s2a-layout-section-top, 124px) 24px 0;
+  background: var(--color-global-black, #000);
+}
+
+.forge-roller img,
+.forge-roller picture,
+.forge-roller svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Blurred full-bleed backdrop derived from the media image. */
+.forge-roller .roller-bg {
+  position: absolute;
+  inset: -10%;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  filter: blur(145px);
+}
+
+.forge-roller .roller-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.forge-roller .section-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  height: 747px;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+/* ---- Typography (translated from truth-target's t-* roles) ---- */
+.forge-roller .ink-white { color: var(--white, #fff); }
+
+.forge-roller .t-eyebrow {
+  font-family: var(--font-body, var(--body-font-family, sans-serif));
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  margin: 0;
+}
+
+.forge-roller .t-title2 {
+  font-family: var(--font-heading, var(--body-font-family, sans-serif));
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 56px;
+  letter-spacing: -1.68px;
+  margin: 0;
+}
+
+.forge-roller .t-h6 {
+  font-family: var(--font-heading, var(--body-font-family, sans-serif));
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 18px;
+  letter-spacing: -0.2px;
+}
+
+.forge-roller .t-super {
+  font-family: var(--font-heading, var(--body-font-family, sans-serif));
+  font-weight: 900;
+  font-size: 96px;
+  line-height: 92px;
+  letter-spacing: -3.84px;
+  margin: 0;
+}
+
+/* ---- Left column: head + roller carousel ---- */
+.forge-roller .roller-left {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 96px;
+  height: 100%;
+}
+
+.forge-roller .roller-head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #fff;
+  text-align: center;
+}
+
+.forge-roller .roller-carousel {
+  flex: 1 1 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.forge-roller .roller-vid-title {
+  padding-bottom: 16px;
+  width: 100%;
+}
+
+.forge-roller .roller-divider {
+  height: 1px;
+  width: 100%;
+  background: var(--s2a-color-transparent-white-10, rgba(255, 255, 255, 0.1));
+}
+
+.forge-roller .roller-window {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.forge-roller .roller-list {
+  position: absolute;
+  left: 0;
+  top: -165px;
+  display: flex;
+  flex-direction: column;
+}
+
+.forge-roller .roller-app {
+  color: var(--s2a-color-transparent-white-12, rgba(255, 255, 255, 0.12));
+}
+
+.forge-roller .roller-app.is-active {
+  color: var(--s2a-color-content-knockout, #fff);
+}
+
+/* ---- Right column: media card with mnemonic icon ---- */
+.forge-roller .roller-right {
+  flex: 0 0 650px;
+  max-width: 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-bottom: 160px;
+}
+
+.forge-roller .roller-media {
+  position: relative;
+  width: 100%;
+  height: 587px;
+  aspect-ratio: 650 / 587;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.forge-roller .roller-media picture,
+.forge-roller .roller-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.forge-roller .roller-media-icon {
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  width: 32px;
+  height: 32px;
+  z-index: 2;
+}
+
+.forge-roller a {
+  color: inherit;
+}
+
+@media (max-width: 1023px) {
+  .forge-roller .section-inner { flex-direction: column; height: auto; gap: 48px; }
+  .forge-roller .roller-left { height: auto; gap: 48px; }
+  .forge-roller .roller-window { height: 480px; }
+  .forge-roller .roller-right {
+    flex-basis: auto;
+    width: 100%;
+    max-width: none;
+    align-items: stretch;
+    padding-bottom: 80px;
+  }
+}
+
+@media (max-width: 767px) {
+  .forge-roller { padding-top: 80px; }
+  .forge-roller .t-title2 { font-size: 38px; line-height: 40px; letter-spacing: -1px; }
+  .forge-roller .t-super { font-size: 60px; line-height: 60px; letter-spacing: -2px; }
+  .forge-roller .roller-list { top: -120px; }
+}

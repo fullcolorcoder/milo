@@ -1,0 +1,190 @@
+/* forge-usecase — scoped to .forge-usecase. Authored toward the Figma use-case
+   section (truth-target.css + the reference frame): a dark full-width band, a
+   white title, and a bento grid (two light tiles in a row, one full-width hero
+   tile with overlaid copy below). Keyed ONLY on the classes init() stamps. */
+
+.forge-usecase {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--s2a-color-background-dark, #16161a);
+  padding: 124px 124px 80px;
+}
+
+.forge-usecase img,
+.forge-usecase picture,
+.forge-usecase svg {
+  max-width: 100%;
+  display: block;
+}
+
+.forge-usecase .usecase-inner {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.forge-usecase .usecase-title {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0 16px;
+}
+
+.forge-usecase .t-title3 {
+  font-family: var(--font-heading, 'Adobe Clean', adobe-clean, sans-serif);
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 48px;
+  letter-spacing: -1.44px;
+}
+
+.forge-usecase .t-h6 {
+  margin: 0;
+  font-family: var(--font-heading, 'Adobe Clean', adobe-clean, sans-serif);
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 18px;
+  letter-spacing: -0.2px;
+}
+
+.forge-usecase .t-body-md {
+  margin: 0;
+  font-family: var(--font-body, 'Adobe Clean', adobe-clean, sans-serif);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.forge-usecase .ink-white { color: var(--white, #fff); }
+.forge-usecase .ink-dark { color: #000; }
+.forge-usecase .ink-dark-subtle { color: var(--s2a-color-content-body-subtle-dark, #4b4b4b); }
+
+.forge-usecase .usecase-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.forge-usecase .bento-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.forge-usecase .bento {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bento-light, #f5f5f5);
+  border: 2px solid var(--s2a-color-transparent-white-10, rgba(255, 255, 255, 0.1));
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.forge-usecase .bento-wide { flex: 1 1 100%; }
+
+.forge-usecase .bento-img {
+  aspect-ratio: 692 / 560;
+  width: 100%;
+  overflow: hidden;
+}
+
+.forge-usecase .bento-img picture { width: 100%; height: 100%; }
+
+.forge-usecase .bento-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.forge-usecase .bento-wide .bento-img { aspect-ratio: 1392 / 560; }
+.forge-usecase .bento-wide .bento-img img { object-position: center; }
+
+.forge-usecase .bento-type {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 48px;
+}
+
+.forge-usecase .bento-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 450px;
+}
+
+.forge-usecase .bento-overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 48px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0) 60%);
+}
+
+/* Brand-mnemonic badge — top-left, above the hero. */
+.forge-usecase .bento-badge {
+  position: absolute;
+  left: 48px;
+  top: 48px;
+  width: 32px;
+  height: 32px;
+  z-index: 2;
+}
+
+.forge-usecase .bento-badge img { width: 100%; height: 100%; object-fit: contain; }
+
+.forge-usecase .cc-ico {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.forge-usecase .cc-ico .cc-ico-tile {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.forge-usecase .cc-ico .cc-ico-mn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 68%;
+  height: auto;
+  transform: translate(-50%, -50%);
+}
+
+/* Links inside this dark section must set their own readable colour. */
+.forge-usecase a { color: inherit; }
+
+@media (max-width: 1023px) {
+  .forge-usecase { padding-left: 40px; padding-right: 40px; }
+  .forge-usecase .bento-row { flex-wrap: wrap; }
+}
+
+@media (max-width: 767px) {
+  .forge-usecase { padding: 80px 24px; }
+  .forge-usecase .t-title3 { font-size: 34px; line-height: 36px; letter-spacing: -1px; }
+  .forge-usecase .bento-row { flex-direction: column; }
+  .forge-usecase .bento-type,
+  .forge-usecase .bento-overlay { padding: 24px; }
+}

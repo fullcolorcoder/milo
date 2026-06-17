@@ -1,0 +1,190 @@
+/* forge-usecase-5 — use-case bento grid. Authored toward the Figma visual target
+   (truth-target.css + screenshot), keyed ONLY on the classes init() stamps on the
+   reconstructed DOM. Dark full-width section; light bento tiles. */
+
+.forge-usecase-5 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 124px 124px 80px;
+  background: var(--s2a-color-background-dark, #000);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.forge-usecase-5 img,
+.forge-usecase-5 picture,
+.forge-usecase-5 svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.forge-usecase-5 .section-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Typography */
+.forge-usecase-5 .t-title3 {
+  font-family: var(--font-heading, 'Adobe Clean', sans-serif);
+  font-weight: 900;
+  font-size: 48px;
+  line-height: 48px;
+  letter-spacing: -1.44px;
+  margin: 0;
+}
+
+.forge-usecase-5 .t-h6 {
+  font-family: var(--font-heading, 'Adobe Clean', sans-serif);
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 18px;
+  letter-spacing: -0.2px;
+  margin: 0;
+}
+
+.forge-usecase-5 .t-body-md {
+  font-family: var(--font-body, 'Adobe Clean', sans-serif);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  margin: 0;
+}
+
+.forge-usecase-5 .ink-white { color: var(--white, #fff); }
+.forge-usecase-5 .ink-dark { color: #000; }
+.forge-usecase-5 .ink-dark-subtle { color: var(--s2a-color-content-body-subtle-dark, #5c5c5c); }
+
+.forge-usecase-5 .usecase-title {
+  width: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+/* Grid */
+.forge-usecase-5 .usecase-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.forge-usecase-5 .bento-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.forge-usecase-5 .bento {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bento-light, #f0f0f0);
+  border: 2px solid var(--s2a-color-transparent-white-10, rgba(255, 255, 255, 0.1));
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.forge-usecase-5 .bento-img {
+  aspect-ratio: 692 / 560;
+  width: 100%;
+  overflow: hidden;
+}
+
+.forge-usecase-5 .bento-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.forge-usecase-5 .bento-type {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 48px;
+}
+
+.forge-usecase-5 .bento-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 450px;
+}
+
+/* App-icon / brand badges */
+.forge-usecase-5 .bento-badge {
+  position: absolute;
+  left: 48px;
+  top: 48px;
+  width: 32px;
+  height: 32px;
+  z-index: 2;
+}
+
+.forge-usecase-5 .bento-badge img,
+.forge-usecase-5 .bento-badge picture {
+  width: 100%;
+  height: 100%;
+}
+
+.forge-usecase-5 .cc-ico {
+  position: relative;
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+}
+
+.forge-usecase-5 .cc-ico-tile {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.forge-usecase-5 .cc-ico-mn {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 22px;
+  height: 16.7px;
+  transform: translate(-50%, -50%);
+}
+
+/* Links inside the dark section keep readable colour (never inherit a:#000). */
+.forge-usecase-5 a { color: inherit; }
+
+@media (max-width: 1023px) {
+  .forge-usecase-5 {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  .forge-usecase-5 .bento-row { flex-wrap: wrap; }
+}
+
+@media (max-width: 767px) {
+  .forge-usecase-5 {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .forge-usecase-5 .t-title3 {
+    font-size: 34px;
+    line-height: 36px;
+    letter-spacing: -1px;
+  }
+
+  .forge-usecase-5 .bento-row { flex-direction: column; }
+  .forge-usecase-5 .bento-type { padding: 24px; }
+}
