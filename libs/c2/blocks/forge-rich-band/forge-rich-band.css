@@ -1,0 +1,130 @@
+/* forge-rich-band — full-bleed hero band ("Create better with apps that work
+   together."). Authored toward the Figma visual target; every selector is
+   scoped to .forge-rich-band and keys ONLY on the classes init() stamps on the
+   rebuilt DOM (DA strips the authored Figma classes, so none of those exist at
+   runtime). Tokens (--font-*, --spacing-*, --color-*) are page globals linked
+   from the head; px fallbacks keep the block self-sufficient. */
+
+.forge-rich-band {
+  position: relative;
+  overflow: hidden;
+  min-height: 814px;
+  background: var(--color-black, #111);
+}
+
+.forge-rich-band img,
+.forge-rich-band picture {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Background photo fills the band; min-height reserves the box (no CLS). */
+.forge-rich-band .bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.forge-rich-band .bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Top + bottom darkening so the white headline and chrome stay legible. */
+.forge-rich-band .scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, .8) 0%,
+    rgba(0, 0, 0, 0) 39.45%,
+    rgba(0, 0, 0, 0) 74.49%,
+    rgba(0, 0, 0, .8) 100%
+  );
+}
+
+.forge-rich-band .section-inner {
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Content anchored lower-left, headline at the bottom of the band. */
+.forge-rich-band .rb-inner {
+  position: relative;
+  min-height: 814px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 160px 40px 80px;
+}
+
+.forge-rich-band .rb-top {
+  max-width: 656px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md, 16px);
+}
+
+.forge-rich-band .app-id {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs, 8px);
+}
+
+.forge-rich-band .app-id .cc {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 23.14px;
+}
+
+.forge-rich-band .app-id .cc img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.forge-rich-band .t-eyebrow {
+  font-family: var(--font-text, "Adobe Clean", sans-serif);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.forge-rich-band .eyebrow-white {
+  color: var(--color-white, #fff);
+}
+
+.forge-rich-band .t-title2 {
+  margin: 0;
+  color: var(--color-white, #fff);
+  font-family: var(--font-display, "Adobe Clean Display", sans-serif);
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 56px;
+  letter-spacing: -1.68px;
+}
+
+/* Links inside the dark band must not inherit the global near-black. */
+.forge-rich-band a {
+  color: inherit;
+}
+
+@media (max-width: 767px) {
+  .forge-rich-band,
+  .forge-rich-band .rb-inner {
+    min-height: 600px;
+  }
+
+  .forge-rich-band .rb-inner {
+    padding: 120px 24px 48px;
+  }
+
+  .forge-rich-band .t-title2 {
+    font-size: 38px;
+    line-height: 40px;
+    letter-spacing: -1.1px;
+  }
+}

@@ -1,0 +1,134 @@
+/* forge-trust — dark "Why choose Creative Cloud Pro." trust section: an eyebrow
+   + title header above a 3-up row of bordered/rounded media tiles (image on top,
+   heading + body caption below). Authored toward the Figma visual target; every
+   selector is scoped to .forge-trust and keys ONLY on the classes init() stamps
+   on the rebuilt DOM (DA strips the authored Figma classes, so none of those
+   exist at runtime). Tokens (--color-*, --card-*, --font-*, --spacing-*,
+   --radius-*, --layout-*) are page globals linked from the head; px fallbacks
+   keep the block self-sufficient. */
+
+.forge-trust {
+  min-height: 712px;
+  background: var(--color-black, #000);
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+  overflow: hidden;
+  /* Section rhythm consistent with C2 siblings — vertical padding. */
+  padding: var(--layout-lg, 124px) 0 var(--layout-sm, 80px);
+}
+
+.forge-trust .section-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 124px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl, 40px);
+}
+
+.forge-trust .trust-head {
+  display: flex;
+  flex-direction: column;
+}
+
+.forge-trust .trust-eyebrow {
+  margin: 0;
+  color: var(--color-content-subtle, rgba(255, 255, 255, .76));
+  font-family: var(--font-text, "Adobe Clean", sans-serif);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.forge-trust .trust-title {
+  margin: 8px 0 0;
+  color: var(--color-white, #fff);
+  font-family: var(--font-display, "Adobe Clean Display", sans-serif);
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 56px;
+  letter-spacing: -1.68px;
+}
+
+.forge-trust .trust-tiles {
+  display: flex;
+  gap: var(--spacing-xs, 8px);
+}
+
+.forge-trust .trust-tile {
+  flex: 1 1 0;
+  min-width: 234px;
+  display: flex;
+  flex-direction: column;
+}
+
+.forge-trust .trust-tile-img {
+  aspect-ratio: 596 / 447;
+  border: 2px solid var(--card-border, rgba(255, 255, 255, .1));
+  border-radius: var(--radius-md, 16px);
+  overflow: hidden;
+  background: var(--card-dark, #0c0c0c);
+}
+
+.forge-trust .trust-tile-img picture,
+.forge-trust .trust-tile-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  vertical-align: top;
+}
+
+.forge-trust .trust-tile-cap {
+  padding: 16px 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xs, 4px);
+}
+
+.forge-trust .trust-tile-cap .trust-heading {
+  margin: 0;
+  color: var(--color-white, #fff);
+  font-family: var(--font-display, "Adobe Clean Display", sans-serif);
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 18px;
+  letter-spacing: -.2px;
+}
+
+.forge-trust .trust-tile-cap .trust-body {
+  margin: 0;
+  max-width: 450px;
+  color: var(--color-content-body-subtle, rgba(255, 255, 255, .64));
+  font-family: var(--font-text, "Adobe Clean", sans-serif);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+/* Links inside the dark section must not inherit the global near-black. */
+.forge-trust a {
+  color: inherit;
+}
+
+@media (max-width: 1023px) {
+  .forge-trust .section-inner {
+    padding: 0 40px;
+  }
+
+  .forge-trust .trust-tiles {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 767px) {
+  .forge-trust {
+    padding: var(--layout-sm, 80px) 0 var(--spacing-3xl, 48px);
+  }
+
+  .forge-trust .trust-title {
+    font-size: 38px;
+    line-height: 40px;
+    letter-spacing: -1.1px;
+  }
+}

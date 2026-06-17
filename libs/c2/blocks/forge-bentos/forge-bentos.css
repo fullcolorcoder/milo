@@ -1,0 +1,127 @@
+/* forge-bentos — dark 2×2 bento grid ("See what's in Creative Cloud Pro.").
+   Authored toward the Figma visual target; every selector is scoped to
+   .forge-bentos and keys ONLY on the classes init() stamps on the rebuilt DOM
+   (DA strips the authored Figma classes, so none of those exist at runtime).
+   Tokens (--color-*, --card-*, --font-*, --spacing-*, --radius-*) are page
+   globals linked from the head; px fallbacks keep the block self-sufficient. */
+
+.forge-bentos {
+  background: var(--color-black, #000);
+  /* Section rhythm consistent with C2 siblings — vertical padding, not just
+     Figma's horizontal padding. */
+  padding: var(--layout-lg, 124px) 0 var(--layout-sm, 80px);
+}
+
+.forge-bentos .section-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl, 40px);
+  align-items: center;
+}
+
+.forge-bentos .title {
+  margin: 0;
+  color: var(--color-white, #fff);
+  text-align: center;
+  font-family: var(--font-display, "Adobe Clean Display", sans-serif);
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 1;
+  letter-spacing: -1.68px;
+}
+
+.forge-bentos .bento-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs, 8px);
+  width: 100%;
+}
+
+.forge-bentos .bento-row {
+  display: flex;
+  gap: var(--spacing-xs, 8px);
+}
+
+.forge-bentos .bento {
+  flex: 1 1 0;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  background: var(--card-dark, #0c0c0c);
+  border: 2px solid var(--card-border, rgba(255, 255, 255, .1));
+  border-radius: var(--radius-md, 16px);
+  overflow: hidden;
+}
+
+.forge-bentos .bento-img {
+  aspect-ratio: 692 / 560;
+  overflow: hidden;
+  position: relative;
+}
+
+.forge-bentos .bento-img picture,
+.forge-bentos .bento-img img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  vertical-align: top;
+}
+
+.forge-bentos .bento-cap {
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xs, 4px);
+}
+
+.forge-bentos .bento-cap .bento-heading {
+  margin: 0;
+  max-width: 450px;
+  color: var(--color-white, #fff);
+  font-family: var(--font-display, "Adobe Clean Display", sans-serif);
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: -.2px;
+}
+
+.forge-bentos .bento-cap .bento-body {
+  margin: 0;
+  max-width: 450px;
+  color: var(--color-content-body-subtle, rgba(255, 255, 255, .64));
+  font-family: var(--font-text, "Adobe Clean", sans-serif);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+/* Links inside the dark section must not inherit the global near-black. */
+.forge-bentos a {
+  color: inherit;
+}
+
+@media (max-width: 1023px) {
+  .forge-bentos .bento-row {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 767px) {
+  .forge-bentos {
+    padding: var(--layout-sm, 80px) 0 var(--spacing-3xl, 48px);
+  }
+
+  .forge-bentos .title {
+    font-size: 38px;
+    line-height: 40px;
+    letter-spacing: -1.1px;
+  }
+
+  .forge-bentos .bento-cap {
+    padding: 32px;
+  }
+}
