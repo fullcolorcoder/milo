@@ -1,0 +1,67 @@
+/* forge-workfaster — centered headline above a full-width composite use-case
+   cards image. Authored toward the Figma visual target; keyed ONLY on the
+   classes init() stamps on the reconstructed DOM (.head / .t-title2 /
+   .workfaster-cards). No baked design-width (L27): everything reflows to 100%. */
+
+.forge-workfaster {
+  background: var(--s2a-color-background-default, #fff);
+  text-align: center;
+  /* C21 — Milo C2 vertical section rhythm (top/bottom), not just Figma's sides. */
+  padding: var(--s2a-layout-section-top, 124px) 24px var(--s2a-layout-section-bottom, 80px);
+}
+
+.forge-workfaster img,
+.forge-workfaster picture {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+.forge-workfaster .head {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 0 40px;
+}
+
+.forge-workfaster .t-title2 {
+  font-family: var(--font-family-heading, "Adobe Clean Display", "Adobe Clean", sans-serif);
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 56px;
+  letter-spacing: -1.68px;
+  color: var(--s2a-color-content-title, #000);
+  margin: 0;
+}
+
+.forge-workfaster .t-bodymd {
+  font-family: var(--font-family-body, "Adobe Clean", sans-serif);
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--s2a-color-content-body-subtle, rgba(0, 0, 0, 0.64));
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.forge-workfaster .workfaster-cards {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* C20 — explicit readable link color inside the block scope. */
+.forge-workfaster a {
+  color: inherit;
+}
+
+@media (max-width: 767px) {
+  .forge-workfaster {
+    padding: 64px 16px 48px;
+  }
+
+  .forge-workfaster .t-title2 {
+    font-size: 36px;
+    line-height: 38px;
+    letter-spacing: -1px;
+  }
+}

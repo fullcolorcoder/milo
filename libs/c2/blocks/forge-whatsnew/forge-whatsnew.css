@@ -1,0 +1,161 @@
+/* forge-whatsnew — "There's always something new with Acrobat." 3-up card grid.
+   Authored toward the Figma target (truth-target.css + reference frame), keyed
+   ONLY on the classes init() stamps on the reconstructed DOM. */
+
+.forge-whatsnew {
+  background: var(--s2a-color-bg-subtle, #f6f6f6);
+  padding: 96px 124px 124px;
+}
+
+.forge-whatsnew img,
+.forge-whatsnew picture,
+.forge-whatsnew svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Head ------------------------------------------------------------------ */
+.forge-whatsnew .head {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  text-align: center;
+  padding: 0 0 40px;
+}
+
+.forge-whatsnew .head .eyebrow {
+  font-family: var(--font-family-body, "Adobe Clean", sans-serif);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  margin: 0;
+  color: var(--s2a-color-content-eyebrow, #5c5c5c);
+}
+
+.forge-whatsnew .head .title {
+  max-width: 664px;
+  margin: 0;
+  font-family: var(--font-family-heading, "Adobe Clean", sans-serif);
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 56px;
+  letter-spacing: -1.68px;
+  color: var(--s2a-color-content-title, #1d1d1d);
+}
+
+/* Grid ------------------------------------------------------------------ */
+.forge-whatsnew .whatsnew-grid {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.forge-whatsnew .wn-card {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.forge-whatsnew .wn-img {
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+}
+
+.forge-whatsnew .wn-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.forge-whatsnew .wn-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 16px 0;
+}
+
+.forge-whatsnew .wn-copy .wn-title {
+  margin: 0;
+  font-family: var(--font-family-heading, "Adobe Clean", sans-serif);
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 18px;
+  letter-spacing: -0.2px;
+  color: var(--s2a-color-content-title, #1d1d1d);
+}
+
+.forge-whatsnew .wn-copy .wn-body {
+  margin: 0;
+  font-family: var(--font-family-body, "Adobe Clean", sans-serif);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--s2a-color-content-body-subtle, #5c5c5c);
+}
+
+.forge-whatsnew .wn-learn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #000;
+}
+
+.forge-whatsnew .wn-learn .wn-learn-label {
+  font-family: var(--font-family-body, "Adobe Clean", sans-serif);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.forge-whatsnew .wn-learn .wn-arrow {
+  width: 6px;
+  height: 10px;
+  flex: 0 0 auto;
+}
+
+.forge-whatsnew .wn-learn:hover .wn-learn-label {
+  text-decoration: underline;
+}
+
+/* Responsive ------------------------------------------------------------ */
+@media (max-width: 1023px) {
+  .forge-whatsnew {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .forge-whatsnew .whatsnew-grid {
+    flex-wrap: wrap;
+  }
+
+  .forge-whatsnew .wn-card {
+    flex: 1 1 45%;
+  }
+}
+
+@media (max-width: 767px) {
+  .forge-whatsnew {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .forge-whatsnew .head .title {
+    font-size: 36px;
+    line-height: 38px;
+    letter-spacing: -1px;
+  }
+
+  .forge-whatsnew .wn-card {
+    flex: 1 1 100%;
+  }
+}
